@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "es6",
+    "module": "es6",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "lib": ["dom","es5","es6","es7"],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./app"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "filesGlob": [
+    "./typings/index.d.ts",
+    "./app/**/*.d.ts",
+    "./app/**/*.ts",
+    "./app/**/*.tsx"
+  ]
+}

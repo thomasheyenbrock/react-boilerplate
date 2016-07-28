@@ -12,9 +12,11 @@ module.exports = (options) => ({
     publicPath: '/',
   }, options.output), // Merge with env dependent settings
   module: {
-    loaders: [{
-      test: /\.js$/, // Transform all .js files required somewhere with Babel
-      loader: 'babel',
+    loaders: [
+      { test: /\.tsx?$/, loader: 'babel-loader!ts-loader' },
+      {
+      test: /\.jsx?$/, // Transform all .js files required somewhere with Babel
+      loader: 'babel-loader',
       exclude: /node_modules/,
       query: options.babelQuery,
     }, {
@@ -73,6 +75,8 @@ module.exports = (options) => ({
       '',
       '.js',
       '.jsx',
+      '.ts',
+      '.tsx',
       '.react.js',
     ],
     packageMains: [
@@ -84,4 +88,9 @@ module.exports = (options) => ({
   target: 'web', // Make web variables accessible to webpack, e.g. window
   stats: false, // Don't show stats in the console
   progress: true,
+  ts: {
+    compilerOptions: {
+      noEmit: false
+    }
+  }
 });
