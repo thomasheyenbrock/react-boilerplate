@@ -21,5 +21,8 @@
     "./app/**/*.d.ts",
     "./app/**/*.ts",
     "./app/**/*.tsx"
-  ]
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true
+  }
 }

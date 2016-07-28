@@ -4,6 +4,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 module.exports = (options) => ({
   entry: options.entry,
@@ -12,13 +14,9 @@ module.exports = (options) => ({
     publicPath: '/',
   }, options.output), // Merge with env dependent settings
   module: {
-    loaders: [
-      { test: /\.tsx?$/, loader: 'babel-loader!ts-loader' },
-      {
-      test: /\.jsx?$/, // Transform all .js files required somewhere with Babel
-      loader: 'babel-loader',
-      exclude: /node_modules/,
-      query: options.babelQuery,
+    loaders: [{
+      test: /\.tsx?$/,
+      loader: 'awesome-typescript-loader'
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
       test: /\.css$/,
@@ -54,6 +52,9 @@ module.exports = (options) => ({
     }],
   },
   plugins: options.plugins.concat([
+    new TsConfigPathsPlugin(),
+    new ForkCheckerPlugin(),
+
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports?self.fetch!whatwg-fetch',
@@ -87,10 +88,5 @@ module.exports = (options) => ({
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
   stats: false, // Don't show stats in the console
-  progress: true,
-  ts: {
-    compilerOptions: {
-      noEmit: false
-    }
-  }
+  progress: true
 });
