@@ -23,6 +23,8 @@
     "./app/**/*.tsx"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "useBabel": true
+    "useBabel": true,
+    "forkChecker": true,
+    "useCache": true
   }
 }
