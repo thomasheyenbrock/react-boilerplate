@@ -2,7 +2,6 @@
  * TEST WEBPACK CONFIGURATION
  */
 
-const path = require('path');
 const webpack = require('webpack');
 const modules = [
   'app',
@@ -22,12 +21,6 @@ module.exports = {
       /node_modules(\\|\/)sinon/,
       /node_modules(\\|\/)acorn/,
     ],
-    rules: [
-      { test: /\.js$/,
-        loader: 'isparta',
-        include: path.resolve('app/'),
-      },
-    ],
     loaders: [
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'null-loader' },
@@ -42,7 +35,7 @@ module.exports = {
         loader: 'babel',
         exclude: [/node_modules/],
       },
-      { test: /\.jpe?g$|\.gif$|\.png$/i,
+      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
         loader: 'null-loader',
       },
     ],
@@ -57,20 +50,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
-    }),
-
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        isparta: {
-          babel: {
-            presets: ['es2015', 'react', 'stage-0'],
-          },
-        },
-        context: '/',
-      }
-    })
-  ],
-
+    })],
 
   // Some node_modules pull in Node-specific dependencies.
   // Since we're running in a browser we have to stub them out. See:
