@@ -38,9 +38,9 @@ interface IHomePageProps {
   loading?: boolean,
   error?: Object,
   repos?: Array<any>,
-  onSubmitForm?: Function,
+  onSubmitForm?: () => __React.EventHandler<__React.FormEvent>,
   username?: string,
-  onChangeUsername?: Function,
+  onChangeUsername?: () => __React.EventHandler<__React.FormEvent>,
 }
 
 export class HomePage extends React.Component<IHomePageProps, {}> {

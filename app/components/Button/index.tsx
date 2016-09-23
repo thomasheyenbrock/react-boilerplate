@@ -12,9 +12,9 @@ const styles = require('./styles.css');
 
 interface IButtonProps extends React.ClassAttributes<Button>{
   className?: string,
-  handleRoute?: Function | (() => void),
+  handleRoute?: __React.EventHandler<__React.MouseEvent>,
   href?: string,
-  onClick?: Function | (() => void),
+  onClick?: __React.EventHandler<__React.MouseEvent>,
   children?: React.ReactNode,
 }
 
