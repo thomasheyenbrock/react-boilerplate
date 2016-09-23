@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 
+import messages from './messages';
 import { createStructuredSelector } from 'reselect';
 
 import {
@@ -24,6 +25,7 @@ import {
 import { changeUsername } from './actions';
 import { loadRepos } from '../App/actions';
 
+import { FormattedMessage } from 'react-intl';
 import RepoListItem from 'containers/RepoListItem';
 import Button from 'components/Button';
 import H2 from 'components/H2';
@@ -37,7 +39,7 @@ interface IHomePageProps {
   changeRoute?: (string) => void,
   loading?: boolean,
   error?: Object,
-  repos?: Array<any>,
+  repos?: any[],
   onSubmitForm?: () => __React.EventHandler<__React.FormEvent>,
   username?: string,
   onChangeUsername?: () => __React.EventHandler<__React.FormEvent>,
@@ -74,18 +76,18 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
 
     // Show a loading indicator when we're loading
     if (this.props.loading) {
-      mainContent = (<List component={LoadingIndicator}/>);
+      mainContent = (<List component={LoadingIndicator} />);
 
       // Show an error if there is one
     } else if (this.props.error !== false) {
       const ErrorComponent = () => (
-        <ListItem item={'Something went wrong, please try again!'}/>
+        <ListItem item={'Something went wrong, please try again!'} />
       );
-      mainContent = (<List component={ErrorComponent}/>);
+      mainContent = (<List component={ErrorComponent} />);
 
       // If we're not loading, don't have an error and there are repos, show the repos
     } else if (this.props.repos) {
-      mainContent = (<List items={this.props.repos} component={RepoListItem}/>);
+      mainContent = (<List items={this.props.repos} component={RepoListItem} />);
     }
 
     return (
@@ -98,15 +100,23 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
         />
         <div>
           <section className={`${styles.textSection} ${styles.centered}`}>
-            <H2>Start your next react project in seconds</H2>
+            <H2>
+              <FormattedMessage {...messages.startProjectHeader} />
+            </H2>
             <p>
-              A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices</p>
+              <FormattedMessage {...messages.startProjectMessage} />
+            </p>
           </section>
           <section className={styles.textSection}>
-            <H2>Try me!</H2>
+            <H2>
+              <FormattedMessage {...messages.trymeHeader} />
+            </H2>
             <form className={styles.usernameForm} onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">Show Github repositories by
-                <span className={styles.atPrefix}>@</span>
+              <label htmlFor="username">
+                <FormattedMessage {...messages.trymeMessage} />
+                <span className={styles.atPrefix}>
+                  <FormattedMessage {...messages.trymeAtPrefix} />
+                </span>
                 <input
                   id="username"
                   className={styles.input}
@@ -119,7 +129,9 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
             </form>
             {mainContent}
           </section>
-          <Button handleRoute={this.openFeaturesPage}>Features</Button>
+          <Button handleRoute={this.openFeaturesPage}>
+            <FormattedMessage {...messages.featuresButton} />
+          </Button>
         </div>
       </article>
     );

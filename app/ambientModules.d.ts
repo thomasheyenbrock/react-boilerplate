@@ -1,12 +1,27 @@
 ///<reference path="../typings/index.d.ts"/>
 
+declare module "offline-plugin/runtime" {
+  export var install: Function;
+}
+
+declare module "warning" {
+  var warning: (boolean, string) => void;
+  export default warning;
+}
+
 declare module "expect" {
   interface Spy extends Function {}
 }
 
+declare module _ {
+  export interface LoDashStatic {
+    conformsTo: (a: any, b: any) => boolean;
+  }
+}
+
+
 declare module "react-router-scroll" {
-  var useScroll: Function; //TODO: needs type definition
-  export default useScroll;
+  export var useScroll: Function; //TODO: needs type definition
 }
 
 declare module "react-router" {
@@ -38,5 +53,6 @@ interface NodeModule {
 }
 
 interface Window {
+  Intl: any;
   devToolsExtension: Redux.IDevTools;
 }

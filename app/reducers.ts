@@ -8,6 +8,7 @@ import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import globalReducer from 'containers/App/reducer';
+import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
 /*
  * routeReducer
@@ -44,7 +45,8 @@ export default function createReducer(asyncReducers: Object = {}) {
 
   const reducers : Object = {
     route: routeReducer,
-    global: globalReducer
+    global: globalReducer,
+    language: languageProviderReducer,
   };
 
   //TODO: remove after typescript supports rest operators

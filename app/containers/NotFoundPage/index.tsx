@@ -8,36 +8,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
+import messages from './messages';
+import { FormattedMessage } from 'react-intl';
 import Button from 'components/Button';
 import H1 from 'components/H1';
+import RouterAction = ReactRouterRedux.RouterAction;
 
 interface INotFoundProps {
-  changeRoute?: Function,
+  dispatch?: (action: RouterAction) => void,
 }
 
 export class NotFound extends React.Component<INotFoundProps, {}> {
   render() {
     return (
       <article>
-        <H1>Page not found.</H1>
+        <H1>
+          <FormattedMessage {...messages.header} />
+        </H1>
         <Button
           handleRoute={function redirect() {
-          this.props.changeRoute('/');
+          this.props.dispatch(push('/'));
         }}
         >
-          Home
+          <FormattedMessage {...messages.homeButton} />
         </Button>
       </article>
     );
   }
 }
 
-// react-redux stuff
-function mapDispatchToProps(dispatch) {
-  return {
-    changeRoute: (url) => dispatch(push(url)),
-  };
-}
-
 // Wrap the component to inject dispatch and state into it
-export default connect(null, mapDispatchToProps)(NotFound as any); //TODO: fix
+export default connect()(NotFound);

@@ -5,7 +5,7 @@ import ListItem from "components/ListItem";
 
 interface IListProps {
   component: React.ComponentClass<any> | React.StatelessComponent<any>,
-  items?: Array<any>,
+  items?: any[],
 }
 
 class List extends React.Component<IListProps, {}> {
