@@ -68,19 +68,24 @@ module.exports = (options) => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: () => options.postcssPlugins,
+        context: '/',
+      }
+    })
   ]),
-  postcss: () => options.postcssPlugins,
   resolve: {
     modules: ['app', 'node_modules'],
     extensions: [
-      '',
       '.js',
       '.jsx',
       '.ts',
       '.tsx',
       '.react.js',
     ],
-    packageMains: [
+    mainFields: [
       'jsnext:main',
       'main',
     ],
@@ -88,5 +93,5 @@ module.exports = (options) => ({
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
   stats: false, // Don't show stats in the console
-  progress: true
+  // progress: true
 });

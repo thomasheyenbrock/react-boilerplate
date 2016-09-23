@@ -10,12 +10,11 @@ const modules = [
 ];
 
 module.exports = {
+  //entry needed in webpack 2
+  entry: [
+    path.join(process.cwd(), 'app/app.tsx'),
+  ],
   devtool: 'inline-source-map',
-  isparta: {
-    babel: {
-      presets: ['es2015', 'react', 'stage-0'],
-    },
-  },
   module: {
     // Some libraries don't like being run through babel.
     // If they gripe, put them here.
@@ -23,7 +22,7 @@ module.exports = {
       /node_modules(\\|\/)sinon/,
       /node_modules(\\|\/)acorn/,
     ],
-    preLoaders: [
+    rules: [
       { test: /\.js$/,
         loader: 'isparta',
         include: path.resolve('app/'),
@@ -58,7 +57,20 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
-    })],
+    }),
+
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        isparta: {
+          babel: {
+            presets: ['es2015', 'react', 'stage-0'],
+          },
+        },
+        context: '/',
+      }
+    })
+  ],
+
 
   // Some node_modules pull in Node-specific dependencies.
   // Since we're running in a browser we have to stub them out. See:
@@ -80,7 +92,6 @@ module.exports = {
     'react/lib/ReactContext': 'window',
   },
   resolve: {
-    modulesDirectories: modules,
     modules,
     alias: {
       // required for enzyme to work properly
