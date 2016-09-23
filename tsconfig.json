@@ -5,22 +5,22 @@
     "module": "es6",
     "noImplicitAny": false,
     "sourceMap": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "lib": ["dom","es5","es6","es7"],
+    "lib": ["dom","es5","es6","es7","es2017.object"],
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./app"
   },
-  "exclude": [
-    "node_modules"
-  ],
   "filesGlob": [
-    "./typings/index.d.ts",
-    "./app/**/*.d.ts",
-    "./app/**/*.ts",
-    "./app/**/*.tsx"
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
