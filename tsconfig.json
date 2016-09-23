@@ -25,6 +25,6 @@
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
     "forkChecker": true,
-    "useCache": true
+    "useCache": false
   }
 }
