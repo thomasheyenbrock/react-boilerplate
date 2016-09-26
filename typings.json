@@ -15,7 +15,6 @@
     "cookie-parser": "registry:dt/cookie-parser#1.3.4+20160316155526",
     "enzyme": "registry:dt/enzyme#2.4.1+20160709041153",
     "eventemitter3": "registry:dt/eventemitter3#1.1.1+20151208234524",
-    "expect": "registry:dt/expect#1.13.4+20160316155526",
     "express": "registry:dt/express#4.0.0+20160708185218",
     "express-graphql": "registry:dt/express-graphql#0.0.0+20160626095004",
     "express-jwt": "registry:dt/express-jwt#0.0.0+20160629014920",
