@@ -6,8 +6,8 @@
  */
 import { addLocaleData } from 'react-intl';
 
-import enLocaleData from 'react-intl/locale-data/en';
-import deLocaleData from 'react-intl/locale-data/de';
+import * as enLocaleData from 'react-intl/locale-data/en';
+import * as deLocaleData from 'react-intl/locale-data/de';
 
 addLocaleData(enLocaleData);
 addLocaleData(deLocaleData);

@@ -6,7 +6,7 @@
  * otherwise it'll render a link with an onclick
  */
 
-import React from 'react';
+import * as React from 'react';
 
 const styles = require('./styles.css');
 

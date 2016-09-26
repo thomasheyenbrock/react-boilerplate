@@ -6,7 +6,7 @@ declare module "offline-plugin/runtime" {
 
 declare module "warning" {
   var warning: (boolean, string) => void;
-  export default warning;
+  export = warning;
 }
 
 declare module "expect" {

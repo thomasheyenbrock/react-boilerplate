@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const styles = require('./styles.css');
 import ListItem from "components/ListItem";
