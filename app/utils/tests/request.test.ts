@@ -23,7 +23,7 @@ describe('request', () => {
     // Before each test, pretend we got a successful response
     beforeEach(() => {
       const res = new Response('{"hello":"world"}', { status: 200 });
-        res.headers.set('Content-type', 'application/json');
+      res.headers.set('Content-type', 'application/json');
 
       window.fetch.returns(Promise.resolve(res));
     });
@@ -45,7 +45,7 @@ describe('request', () => {
     // Before each test, pretend we got an unsuccessful response
     beforeEach(() => {
       const res = new Response('', { status: 404, statusText: 'Not Found' });
-        res.headers.set('Content-type', 'application/json');
+      res.headers.set('Content-type', 'application/json');
 
       window.fetch.returns(Promise.resolve(res));
     });
