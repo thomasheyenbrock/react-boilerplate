@@ -1,18 +1,17 @@
 /**
  * TEST WEBPACK CONFIGURATION
  */
-
 const webpack = require('webpack');
+
+const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+
 const modules = [
   'app',
   'node_modules',
 ];
 
 module.exports = {
-  //entry needed in webpack 2
-  entry: [
-    path.join(process.cwd(), 'app/app.tsx'),
-  ],
   devtool: 'inline-source-map',
   module: {
     // Some libraries don't like being run through babel.
@@ -22,6 +21,7 @@ module.exports = {
       /node_modules(\\|\/)acorn/,
     ],
     loaders: [
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader', exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'null-loader' },
 
@@ -42,6 +42,28 @@ module.exports = {
   },
 
   plugins: [
+    new TsConfigPathsPlugin(),
+    new ForkCheckerPlugin(),
+
+    new webpack.ProvidePlugin({
+      // make fetch available
+      fetch: 'exports?self.fetch!whatwg-fetch',
+    }),
+
+    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
+    // inside your code for any environment checks; UglifyJS will automatically
+    // drop any unreachable code.
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: '/',
+      },
+    }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; UglifyJS will automatically
@@ -73,6 +95,13 @@ module.exports = {
   },
   resolve: {
     modules,
+    extensions: [
+      '.js',
+      '.jsx',
+      '.ts',
+      '.tsx',
+      '.react.js',
+    ],
     alias: {
       // required for enzyme to work properly
       sinon: 'sinon/pkg/sinon',
