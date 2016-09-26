@@ -3,7 +3,7 @@ import Toggle from '../index';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 import { IntlProvider, defineMessages } from 'react-intl';
-import React from 'react';
+import * as React from 'react';
 
 describe('<Toggle />', () => {
   it('should contain default text', () => {

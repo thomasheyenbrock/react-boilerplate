@@ -1,6 +1,6 @@
 import expect, { createSpy } from 'expect';
 import { shallow, mount } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { FeaturePage } from '../index';
 import H1 from 'components/H1';

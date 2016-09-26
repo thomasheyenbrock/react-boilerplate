@@ -4,7 +4,7 @@
 
 import expect, { createSpy } from 'expect';
 import { shallow, mount } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { HomePage } from 'containers/HomePage';
 import RepoListItem from 'containers/RepoListItem';

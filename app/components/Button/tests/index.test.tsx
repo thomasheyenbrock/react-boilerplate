@@ -6,7 +6,7 @@ import Button from 'components/Button';
 
 import expect, { createSpy }from 'expect';
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 describe('<Button />', () => {
   it('should render its children', () => {

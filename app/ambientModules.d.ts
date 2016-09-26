@@ -10,7 +10,8 @@ declare module "warning" {
 }
 
 declare module "expect" {
-  interface Spy extends Function {}
+  import EventHandler = __React.EventHandler;
+  interface Spy extends EventHandler<__React.MouseEvent> {}
 }
 
 declare module _ {

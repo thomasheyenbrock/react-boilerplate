@@ -2,7 +2,7 @@ import IssueIcon from 'components/IssueIcon';
 
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 describe('<IssueIcon />', () => {
   it('should render a SVG', () => {

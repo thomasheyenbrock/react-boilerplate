@@ -2,7 +2,7 @@ import H1 from 'components/H1';
 
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 describe('<H1 />', () => {
   it('should render its text', () => {

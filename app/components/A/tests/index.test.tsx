@@ -6,7 +6,7 @@ import A from 'components/A';
 
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 const href = 'http://mxstbr.com/';
 const children = (<h1>Test</h1>);

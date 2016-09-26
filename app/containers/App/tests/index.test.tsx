@@ -3,7 +3,7 @@ import Footer from 'components/Footer';
 
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 describe('<App />', () => {
   it('should render the logo', () => {
