@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
-const express = require('express');
-const path = require('path');
-const compression = require('compression');
+import express = require('express');
+import path = require('path');
+import compression = require('compression');
 const pkg = require(path.resolve(process.cwd(), 'package.json'));
 
 // Dev middleware
@@ -59,7 +59,7 @@ const addProdMiddlewares = (app, options) => {
 /**
  * Front-end middleware
  */
-module.exports = (app, options) => {
+export default (app, options) => {
   const isProd = process.env.NODE_ENV === 'production';
 
   if (isProd) {
