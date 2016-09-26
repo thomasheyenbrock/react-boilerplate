@@ -3,6 +3,7 @@ coverage
 build
 node_modules
 typings
+!typings/tslint.json
 stats.json
 
 # Cruft
