@@ -1,7 +1,7 @@
 import React = require('react');
 
 class H3 extends React.Component<{}, {}> {
-  render() {
+  public render() {
     return (
       <h3 {...this.props} />
     );
