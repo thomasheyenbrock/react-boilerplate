@@ -1,6 +1,6 @@
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 import Footer from 'components/Footer';
 import A from 'components/A';

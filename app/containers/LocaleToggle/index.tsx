@@ -4,7 +4,7 @@
  *
  */
 
-import * as React from 'react';
+import React = require('react');
 
 import { connect } from 'react-redux';
 import { selectLocale } from '../LanguageProvider/selectors';

@@ -1,8 +1,8 @@
 import ListItem from 'components/ListItem';
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 describe('<ListItem />', () => {
   it('should adopt the className', () => {

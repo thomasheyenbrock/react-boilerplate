@@ -3,10 +3,10 @@
  *
  * List all the features
  */
-import * as React from 'react';
+import React = require('react');
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import * as Helmet from 'react-helmet';
+import Helmet = require('react-helmet');
 
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';

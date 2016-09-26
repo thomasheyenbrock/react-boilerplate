@@ -1,8 +1,8 @@
 import H2 from 'components/H2';
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 describe('<H2 />', () => {
   it('should render its text', () => {

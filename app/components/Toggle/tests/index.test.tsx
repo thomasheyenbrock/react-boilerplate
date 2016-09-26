@@ -1,9 +1,9 @@
 import Toggle from '../index';
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
 import { IntlProvider, defineMessages } from 'react-intl';
-import * as React from 'react';
+import React = require('react');
 
 describe('<Toggle />', () => {
   it('should contain default text', () => {

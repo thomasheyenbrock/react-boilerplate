@@ -4,7 +4,7 @@
  * Lists the name and the issue count of a repository
  */
 
-import * as React from 'react';
+import React = require('react');
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 

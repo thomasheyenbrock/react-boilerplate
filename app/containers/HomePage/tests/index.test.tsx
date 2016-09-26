@@ -2,9 +2,9 @@
  * Test the HomePage
  */
 
-import expect, { createSpy } from 'expect';
+import expect = require('expect');
 import { shallow, mount } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 import { HomePage } from 'containers/HomePage';
 import RepoListItem from 'containers/RepoListItem';
@@ -54,7 +54,7 @@ describe('<HomePage />', () => {
   });
 
   it('should link to /features', () => {
-    const openRouteSpy = createSpy();
+    const openRouteSpy = expect.createSpy();
 
     // Spy on the openRoute method of the HomePage
     const openRoute = (dest) => {

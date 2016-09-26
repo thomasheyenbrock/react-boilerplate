@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React = require('react');
 
 class H3 extends React.Component<{}, {}> {
   render() {

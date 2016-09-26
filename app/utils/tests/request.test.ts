@@ -3,8 +3,8 @@
  */
 
 import request, {ResponseError} from '../request';
-import sinon from 'sinon';
-import expect from 'expect';
+import sinon = require ('sinon');
+import expect = require('expect');
 
 declare var window: StubedWindow & Window;
 

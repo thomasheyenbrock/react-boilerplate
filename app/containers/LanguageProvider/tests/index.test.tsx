@@ -1,10 +1,10 @@
 import LanguageProvider from '../index';
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
 import { FormattedMessage, defineMessages } from 'react-intl';
 import configureStore from '../../../store';
-import * as React from 'react';
+import React = require('react');
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { translationMessages } from '../../../i18n';

@@ -1,6 +1,6 @@
-import expect, { createSpy } from 'expect';
+import expect = require('expect');
 import { shallow, mount } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 import { FeaturePage } from '../index';
 import H1 from 'components/H1';
@@ -14,7 +14,7 @@ describe('<FeaturePage />', () => {
   });
 
   it('should link to "/"', () => {
-    const openRouteSpy = createSpy();
+    const openRouteSpy = expect.createSpy();
 
     // Spy on the openRoute method of the FeaturePage
     const openRoute = (dest) => {

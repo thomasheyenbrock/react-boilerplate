@@ -4,10 +4,10 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
-import * as React from 'react';
+import React = require('react');
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import * as Helmet from 'react-helmet';
+import Helmet = require('react-helmet');
 
 import messages from './messages';
 import { createStructuredSelector } from 'reselect';

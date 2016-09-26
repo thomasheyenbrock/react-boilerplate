@@ -2,9 +2,9 @@
  * Test the repo list item
  */
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow, mount } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 import { RepoListItem } from '../index';
 import ListItem from 'components/ListItem';

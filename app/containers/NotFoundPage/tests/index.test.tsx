@@ -2,9 +2,9 @@
  * Testing the NotFoundPage
  */
 
-import expect, { createSpy } from 'expect';
+import expect = require('expect');
 import { shallow, mount } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 import { NotFound } from 'containers/NotFoundPage';
 import H1 from 'components/H1';
@@ -27,7 +27,7 @@ describe('<NotFound />', () => {
   });
 
   it('should link to "/"', () => {
-    const changeRouteSpy = createSpy();
+    const changeRouteSpy = expect.createSpy();
     const onChangeRoute = (dest) => {
       if (dest === '/') {
         changeRouteSpy();

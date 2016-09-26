@@ -1,6 +1,6 @@
 import { conformsTo, isEmpty, isFunction, isObject, isString } from 'lodash';
-import * as invariant from 'invariant';
-import * as warning from 'warning';
+import invariant = require('invariant');
+import warning = require('warning');
 import createReducer from '../reducers';
 
 /**

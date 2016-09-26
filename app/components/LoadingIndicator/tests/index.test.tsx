@@ -1,8 +1,8 @@
 import LoadingIndicator from 'components/LoadingIndicator';
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 describe('<LoadingIndicator />', () => {
   it('should render 14 divs', () => {

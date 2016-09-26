@@ -2,7 +2,7 @@ import Img from 'components/Img';
 
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import * as React from 'react';
+import React = require('react');
 
 const src = 'test.png';
 const alt = 'test';
