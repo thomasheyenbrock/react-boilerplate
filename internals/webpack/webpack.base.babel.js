@@ -22,7 +22,7 @@ module.exports = (options) => ({
   module: {
     loaders: [{
       test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader'
+      loader: 'awesome-typescript-loader',
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
       test: /\.css$/,
@@ -80,15 +80,15 @@ module.exports = (options) => ({
         postcss: () => [
           postcssFocus(), // Add a :focus to every :hover
           cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
-                    browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
-                  }),
+            browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
+          }),
           postcssReporter({ // Posts messages from plugins to the terminal
-                            clearMessages: true,
-                          }),
+            clearMessages: true,
+          }),
         ],
         context: '/',
-      }
-    })
+      },
+    }),
   ]),
   resolve: {
     modules: ['app', 'node_modules'],
