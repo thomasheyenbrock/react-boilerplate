@@ -1,4 +1,4 @@
-import H3 from '../H3';
+import H3 from '../index';
 
 import expect = require('expect');
 import { shallow } from 'enzyme';
