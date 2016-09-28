@@ -28,10 +28,6 @@ declare module "react-router-scroll" {
   export var useScroll: Function; //TODO: needs type definition
 }
 
-declare module "react-router" {
-  var applyRouterMiddleware: (...funcs: Function[]) => Element; //TODO: type definition not up to date?
-}
-
 declare namespace Redux { //TODO: better method?
 
   export interface IDevTools extends IDevToolsStatic {
