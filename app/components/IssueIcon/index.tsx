@@ -1,11 +1,11 @@
-import React from 'react';
+import React = require('react');
 
 interface IIssueIconProps {
   className?: string,
 }
 
 class IssueIcon extends React.Component<IIssueIconProps, {}> {
-  render() {
+  public render() {
     return (
       <svg
         height="1em"

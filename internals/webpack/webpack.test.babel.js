@@ -1,9 +1,10 @@
 /**
  * TEST WEBPACK CONFIGURATION
  */
-
-const path = require('path');
 const webpack = require('webpack');
+
+const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+
 const modules = [
   'app',
   'node_modules',
@@ -11,11 +12,6 @@ const modules = [
 
 module.exports = {
   devtool: 'inline-source-map',
-  isparta: {
-    babel: {
-      presets: ['es2015', 'react', 'stage-0'],
-    },
-  },
   module: {
     // Some libraries don't like being run through babel.
     // If they gripe, put them here.
@@ -23,13 +19,8 @@ module.exports = {
       /node_modules(\\|\/)sinon/,
       /node_modules(\\|\/)acorn/,
     ],
-    preLoaders: [
-      { test: /\.js$/,
-        loader: 'isparta',
-        include: path.resolve('app/'),
-      },
-    ],
     loaders: [
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader', exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'null-loader' },
 
@@ -43,13 +34,34 @@ module.exports = {
         loader: 'babel',
         exclude: [/node_modules/],
       },
-      { test: /\.jpe?g$|\.gif$|\.png$/i,
+      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
         loader: 'null-loader',
       },
     ],
   },
 
   plugins: [
+    new TsConfigPathsPlugin(),
+
+    new webpack.ProvidePlugin({
+      // make fetch available
+      fetch: 'exports?self.fetch!whatwg-fetch',
+    }),
+
+    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
+    // inside your code for any environment checks; UglifyJS will automatically
+    // drop any unreachable code.
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: '/',
+      },
+    }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; UglifyJS will automatically
@@ -80,8 +92,15 @@ module.exports = {
     'react/lib/ReactContext': 'window',
   },
   resolve: {
-    modulesDirectories: modules,
     modules,
+    extensions: [
+      '.js',
+      '.jsx',
+      '.ts',
+      '.tsx',
+      '.react.js',
+      '.json',
+    ],
     alias: {
       // required for enzyme to work properly
       sinon: 'sinon/pkg/sinon',

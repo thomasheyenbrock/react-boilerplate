@@ -1,4 +1,4 @@
-import React from 'react';
+import React = require('react');
 
 const styles = require('./styles.css');
 
@@ -8,7 +8,7 @@ interface IListItemProps {
 }
 
 class ListItem extends React.Component<IListItemProps, {}> {
-  render(){
+  public render(){
     return (
       <li className={this.props.className || styles.item}>
         <div className={styles.itemContent}>

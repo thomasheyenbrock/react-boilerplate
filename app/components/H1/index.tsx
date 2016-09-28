@@ -1,9 +1,9 @@
-import React from 'react';
+import React = require('react');
 
 const styles = require('./styles.css');
 
 class H1 extends React.Component<{}, {}> {
-  render(){
+  public render() {
     return (
       <h1 className={styles.heading1} {...this.props} />
     );

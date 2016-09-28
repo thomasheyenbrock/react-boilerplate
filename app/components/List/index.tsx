@@ -1,15 +1,15 @@
-import React from 'react';
+import React = require('react');
 
 const styles = require('./styles.css');
 import ListItem from "components/ListItem";
 
 interface IListProps {
   component: React.ComponentClass<any> | React.StatelessComponent<any>,
-  items?: Array<any>,
+  items?: any[],
 }
 
 class List extends React.Component<IListProps, {}> {
-  render() {
+  public render() {
     const ComponentToRender = this.props.component;
     let content: JSX.Element|JSX.Element[] = (<div></div>);
 

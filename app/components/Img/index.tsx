@@ -5,7 +5,7 @@
  * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React, { PropTypes } from 'react';
+import React = require('react');
 
 // We require the use of src and alt, only enforced by react in dev mode
 interface IImgProps {
@@ -15,7 +15,7 @@ interface IImgProps {
 }
 
 class Img extends React.Component<IImgProps, {}> {
-  render() {
+  public render() {
     return (
       <img className={this.props.className} src={this.props.src} alt={this.props.alt}/>
     );

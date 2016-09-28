@@ -4,8 +4,14 @@
 
 const path = require('path');
 const webpack = require('webpack');
+
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+
+// PostCSS plugins
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+const postcssReporter = require('postcss-reporter');
 
 module.exports = (options) => ({
   entry: options.entry,
@@ -16,7 +22,7 @@ module.exports = (options) => ({
   module: {
     loaders: [{
       test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader'
+      loader: 'awesome-typescript-loader',
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
       test: /\.css$/,
@@ -68,19 +74,32 @@ module.exports = (options) => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: () => [
+          postcssFocus(), // Add a :focus to every :hover
+          cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
+            browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
+          }),
+          postcssReporter({ // Posts messages from plugins to the terminal
+            clearMessages: true,
+          }),
+        ],
+        context: '/',
+      },
+    }),
   ]),
-  postcss: () => options.postcssPlugins,
   resolve: {
     modules: ['app', 'node_modules'],
     extensions: [
-      '',
       '.js',
       '.jsx',
       '.ts',
       '.tsx',
       '.react.js',
     ],
-    packageMains: [
+    mainFields: [
       'jsnext:main',
       'main',
     ],
@@ -88,5 +107,5 @@ module.exports = (options) => ({
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
   stats: false, // Don't show stats in the console
-  progress: true
+  // progress: true
 });

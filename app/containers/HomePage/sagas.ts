@@ -9,7 +9,6 @@ import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
 import { selectUsername } from 'containers/HomePage/selectors';
-import {RequestCallback} from "request";
 
 /**
  * Github repos request/response handler

@@ -2,11 +2,12 @@
  * Test the request function
  */
 
-import request, {ResponseError} from '../request';
-import sinon from 'sinon';
-import expect from 'expect';
+import request, { ResponseError } from '../request';
+import sinon = require ('sinon');
+import expect = require('expect');
 
-declare var window: StubedWindow & Window;
+declare var window: IStubedWindow & Window;
+
 
 describe('request', () => {
   // Before each test, stub the fetch function
@@ -22,8 +23,12 @@ describe('request', () => {
   describe('stubbing successful response', () => {
     // Before each test, pretend we got a successful response
     beforeEach(() => {
-      const res = new Response('{"hello":"world"}', { status: 200 });
-        res.headers.set('Content-type', 'application/json');
+      const res = new Response('{"hello":"world"}', {
+        status: 200,
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
 
       window.fetch.returns(Promise.resolve(res));
     });
@@ -44,8 +49,13 @@ describe('request', () => {
   describe('stubbing error response', () => {
     // Before each test, pretend we got an unsuccessful response
     beforeEach(() => {
-      const res = new Response('', { status: 404, statusText: 'Not Found' });
-        res.headers.set('Content-type', 'application/json');
+      const res = new Response('', {
+        status: 404,
+        statusText: 'Not Found',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
 
       window.fetch.returns(Promise.resolve(res));
     });

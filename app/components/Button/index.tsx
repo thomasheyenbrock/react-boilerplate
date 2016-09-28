@@ -6,20 +6,20 @@
  * otherwise it'll render a link with an onclick
  */
 
-import React from 'react';
+import React = require('react');
 
 const styles = require('./styles.css');
 
 interface IButtonProps extends React.ClassAttributes<Button>{
   className?: string,
-  handleRoute?: Function | (() => void),
+  handleRoute?: __React.EventHandler<__React.MouseEvent>,
   href?: string,
-  onClick?: Function | (() => void),
+  onClick?: __React.EventHandler<__React.MouseEvent>,
   children?: React.ReactNode,
 }
 
 class Button extends React.Component<IButtonProps, {}> {
-  render() {
+  public render() {
     const className = this.props.className ? this.props.className : styles.button;
 
     // Render an anchor tag

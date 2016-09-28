@@ -1,8 +1,8 @@
 import ListItem from 'components/ListItem';
 
-import expect from 'expect';
+import expect = require('expect');
 import { shallow } from 'enzyme';
-import React from 'react';
+import React = require('react');
 
 describe('<ListItem />', () => {
   it('should adopt the className', () => {
@@ -15,6 +15,6 @@ describe('<ListItem />', () => {
     const renderedComponent = shallow(
       <ListItem item={content} />
     );
-    expect(renderedComponent.text()).toBe(content).toEqual(true);
+    expect(renderedComponent.text()).toBe(content);
   });
 });

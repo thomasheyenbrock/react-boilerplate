@@ -1,9 +1,9 @@
-import React from 'react';
+import React = require('react');
 
 const styles = require('./styles.css');
 
 class LoadingIndicator extends React.Component<any, {}>{
-  render() {
+  public render() {
     return (
       <div>
         <div className={styles['sk-fading-circle']}>

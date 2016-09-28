@@ -1,6 +1,6 @@
-import expect from 'expect';
+import expect = require('expect');
 import { render } from 'enzyme';
-import React from 'react';
+import React = require('react');
 
 import List from 'components/List';
 import ListItem from 'components/ListItem';

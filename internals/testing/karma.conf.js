@@ -29,6 +29,10 @@ module.exports = (config) => {
       },
     ],
 
+    exclude: [
+      '**/*.d.ts',
+    ],
+
     preprocessors: {
       ['./test-bundler.js']: ['webpack', 'sourcemap'], // eslint-disable-line no-useless-computed-key
     },

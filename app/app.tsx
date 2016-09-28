@@ -8,20 +8,25 @@
 // Needed for redux-saga es6 generator support
 import 'babel-polyfill';
 
+/* eslint-disable import/no-unresolved */
 // Load the favicon, the manifest.json file and the .htaccess file
 import 'file?name=[name].[ext]!./favicon.ico';
 import '!file?name=[name].[ext]!./manifest.json';
 import 'file?name=[name].[ext]!./.htaccess';
+/* eslint-enable import/no-unresolved */
 
 // Import all the third party stuff
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React = require('react');
+import ReactDOM = require('react-dom');
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import FontFaceObserver from 'fontfaceobserver';
-import useScroll from 'react-router-scroll';
+import FontFaceObserver = require('fontfaceobserver');
+import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
+
+// Import Language Provider
+import LanguageProvider from 'containers/LanguageProvider';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -34,6 +39,9 @@ openSansObserver.load().then(() => {
 }, () => {
   document.body.classList.remove(styles.fontLoaded);
 });
+
+// Import i18n messages
+import { translationMessages } from './i18n';
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
@@ -67,22 +75,53 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Router
-      history={history}
-      routes={rootRoute}
-      render={
-        // Scroll to top when going to a new page, imitating default browser
-        // behaviour
-        applyRouterMiddleware(useScroll())
-      }
-    />
-  </Provider>,
-  document.getElementById('app')
-);
+const render = (messages) => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <LanguageProvider messages={messages}>
+        <Router
+          history={history}
+          routes={rootRoute}
+          render={
+            // Scroll to top when going to a new page, imitating default browser
+            // behaviour
+            applyRouterMiddleware(useScroll())
+          }
+        />
+      </LanguageProvider>
+    </Provider>,
+    document.getElementById('app')
+  );
+};
+
+// Hot reloadable translation json files
+if (module.hot) {
+  // modules.hot.accept does not accept dynamic dependencies,
+  // have to be constants at compile-time
+  module.hot.accept('./i18n', () => {
+    render(translationMessages);
+  });
+}
+
+// Chunked polyfill for browsers without Intl support
+if (!window.Intl) {
+  (new Promise((resolve) => {
+    resolve(System.import('intl'));
+  }))
+    .then(() => Promise.all([
+      System.import('intl/locale-data/jsonp/en.js'),
+      System.import('intl/locale-data/jsonp/de.js'),
+    ]))
+    .then(() => render(translationMessages))
+    .catch((err) => {
+      throw err;
+    });
+} else {
+  render(translationMessages);
+}
 
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed
-require('offline-plugin/runtime').install();
+import { install } from 'offline-plugin/runtime';
+install();

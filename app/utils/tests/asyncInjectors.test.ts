@@ -2,11 +2,12 @@
  * Test async injectors
  */
 
-import expect from 'expect';
+import expect = require('expect');
 import configureStore from '../../store';
 import { createMemoryHistory } from 'react-router';
 import { put } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
+
 
 import {
   injectAsyncReducer,
@@ -27,17 +28,19 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+function* testSaga() {
+  yield put({ type: 'TEST', payload: 'yup' });
+}
+
 const sagas = [
-  function* testSaga() {
-    yield put({ type: 'TEST', payload: 'yup' });
-  },
+  testSaga,
 ];
 
 describe('asyncInjectors', () => {
   let store;
 
   describe('getAsyncInjectors', () => {
-    beforeEach(() => {
+    before(() => {
       store = configureStore({}, createMemoryHistory);
     });
 
@@ -52,10 +55,24 @@ describe('asyncInjectors', () => {
 
       expect(actual.toJS()).toEqual(expected.toJS());
     });
+
+    it('should throw if passed invalid store shape', () => {
+      let result = false;
+
+      Reflect.deleteProperty(store, 'dispatch');
+
+      try {
+        getAsyncInjectors(store);
+      } catch (err) {
+        result = err.name === 'Invariant Violation';
+      }
+
+      expect(result).toEqual(true);
+    });
   });
 
   describe('helpers', () => {
-    beforeEach(() => {
+    before(() => {
       store = configureStore({}, createMemoryHistory);
     });
 
@@ -70,6 +87,46 @@ describe('asyncInjectors', () => {
 
         expect(actual.toJS()).toEqual(expected.toJS());
       });
+
+      it('should throw if passed invalid name', () => {
+        let result = false;
+
+        const injectReducer = injectAsyncReducer(store);
+
+        try {
+          injectReducer('', reducer);
+        } catch (err) {
+          result = err.name === 'Invariant Violation';
+        }
+
+        try {
+          injectReducer(999, reducer);
+        } catch (err) {
+          result = err.name === 'Invariant Violation';
+        }
+
+        expect(result).toEqual(true);
+      });
+
+      it('should throw if passed invalid reducer', () => {
+        let result = false;
+
+        const injectReducer = injectAsyncReducer(store);
+
+        try {
+          injectReducer('bad', 'nope');
+        } catch (err) {
+          result = err.name === 'Invariant Violation';
+        }
+
+        try {
+          injectReducer('coolio', 12345);
+        } catch (err) {
+          result = err.name === 'Invariant Violation';
+        }
+
+        expect(result).toEqual(true);
+      });
     });
 
     describe('injectAsyncSagas', () => {
@@ -82,6 +139,26 @@ describe('asyncInjectors', () => {
         const expected = initialState.merge({ reduced: 'yup' });
 
         expect(actual.toJS()).toEqual(expected.toJS());
+      });
+
+      it('should throw if passed invalid saga', () => {
+        let result = false;
+
+        const injectSagas = injectAsyncSagas(store);
+
+        try {
+          injectSagas({ testSaga });
+        } catch (err) {
+          result = err.name === 'Invariant Violation';
+        }
+
+        try {
+          injectSagas(testSaga);
+        } catch (err) {
+          result = err.name === 'Invariant Violation';
+        }
+
+        expect(result).toEqual(true);
       });
     });
   });

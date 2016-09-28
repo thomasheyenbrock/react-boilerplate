@@ -6,8 +6,8 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React from 'react';
-import Helmet from 'react-helmet';
+import React = require('react');
+import Helmet = require('react-helmet');
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
@@ -24,7 +24,7 @@ interface IAppProps {
 }
 
 class App extends React.Component<IAppProps, {}> {
-  render() {
+  public render() {
     return (
       <div className={styles.wrapper}>
         <Helmet
