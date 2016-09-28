@@ -1,4 +1,4 @@
-///<reference path="../typings/index.d.ts"/>
+///<reference path="../index.d.ts"/>
 
 declare module "offline-plugin/runtime" {
   export var install: Function;
@@ -11,7 +11,10 @@ declare module "warning" {
 
 declare module "expect" {
   import EventHandler = __React.EventHandler;
-  interface Spy extends EventHandler<__React.MouseEvent> {}
+  import SyntheticEvent = __React.SyntheticEvent;
+  interface Spy extends EventHandler<SyntheticEvent> {
+    (): EventHandler<SyntheticEvent>;
+  }
 }
 
 declare module _ {
