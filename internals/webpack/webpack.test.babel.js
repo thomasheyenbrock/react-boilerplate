@@ -101,6 +101,7 @@ module.exports = {
       '.ts',
       '.tsx',
       '.react.js',
+      '.json',
     ],
     alias: {
       // required for enzyme to work properly
