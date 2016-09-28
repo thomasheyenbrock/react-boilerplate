@@ -19,7 +19,7 @@ interface IProps {
 }
 
 export class LanguageProvider extends React.Component<IProps, {}> { // eslint-disable-line react/prefer-stateless-function
-  render() {
+  public render() {
     return (
       <IntlProvider locale={this.props.locale} messages={this.props.messages[this.props.locale]}>
         {React.Children.only(this.props.children)}

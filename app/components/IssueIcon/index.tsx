@@ -5,7 +5,7 @@ interface IIssueIconProps {
 }
 
 class IssueIcon extends React.Component<IIssueIconProps, {}> {
-  render() {
+  public render() {
     return (
       <svg
         height="1em"

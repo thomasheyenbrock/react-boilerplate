@@ -14,7 +14,7 @@ interface IProps {
 }
 
 class ToggleOption extends React.Component<IProps, {}> {
-  render() {
+  public render() {
     return (<option value={this.props.value}>
       {this.props.intl.formatMessage(this.props.message)}
     </option>);

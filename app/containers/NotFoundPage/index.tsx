@@ -19,7 +19,7 @@ interface INotFoundProps {
 }
 
 export class NotFound extends React.Component<INotFoundProps, {}> {
-  render() {
+  public render() {
     return (
       <article>
         <H1>

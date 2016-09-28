@@ -19,7 +19,7 @@ interface IButtonProps extends React.ClassAttributes<Button>{
 }
 
 class Button extends React.Component<IButtonProps, {}> {
-  render() {
+  public render() {
     const className = this.props.className ? this.props.className : styles.button;
 
     // Render an anchor tag

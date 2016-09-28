@@ -9,7 +9,7 @@ interface IListProps {
 }
 
 class List extends React.Component<IListProps, {}> {
-  render() {
+  public render() {
     const ComponentToRender = this.props.component;
     let content: JSX.Element|JSX.Element[] = (<div></div>);
 

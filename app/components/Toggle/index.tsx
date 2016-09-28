@@ -17,7 +17,7 @@ interface IProps {
 }
 
 class Toggle extends React.Component<IProps, {}> {  // eslint-disable-line react/prefer-stateless-function
-  render() {
+  public render() {
     let content = [(<option>--</option>)];
 
     // If we have items, render them

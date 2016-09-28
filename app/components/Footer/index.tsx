@@ -4,7 +4,7 @@ import A from 'components/A';
 const styles = require('./styles.css');
 
 class Footer extends React.Component<{}, {}> {
-  render(){
+  public render(){
     return (
       <footer className={styles.footer}>
         <section>

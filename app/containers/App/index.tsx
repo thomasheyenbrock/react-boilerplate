@@ -24,7 +24,7 @@ interface IAppProps {
 }
 
 class App extends React.Component<IAppProps, {}> {
-  render() {
+  public render() {
     return (
       <div className={styles.wrapper}>
         <Helmet

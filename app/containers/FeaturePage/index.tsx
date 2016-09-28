@@ -26,7 +26,7 @@ export class FeaturePage extends React.Component<IFeaturePageProps, {}> {
     this.props.dispatch(push('/'));
   };
 
-  render() {
+  public render() {
     return (
       <div>
         <Helmet

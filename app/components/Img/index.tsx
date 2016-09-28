@@ -15,7 +15,7 @@ interface IImgProps {
 }
 
 class Img extends React.Component<IImgProps, {}> {
-  render() {
+  public render() {
     return (
       <img className={this.props.className} src={this.props.src} alt={this.props.alt}/>
     );
