@@ -13,6 +13,7 @@ import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
 import { selectUsername } from 'containers/HomePage/selectors';
+import { Action } from 'redux';
 
 const username = 'mxstbr';
 
@@ -62,7 +63,7 @@ describe('getReposWatcher Saga', () => {
   });
 
   it('should invoke getRepos saga on actions', () => {
-    const callDescriptor = getReposWatcherGenerator.next(put(LOAD_REPOS)).value;
+    const callDescriptor = getReposWatcherGenerator.next(put(LOAD_REPOS as any as Action)).value; // TODO: investigate typing of put action
     expect(callDescriptor).toEqual(call(getRepos));
   });
 });
@@ -85,7 +86,7 @@ describe('githubDataSaga Saga', () => {
   it('should finally cancel() the forked getReposWatcher saga',
     function* githubDataSagaCancellable() { // tslint:disable-line:only-arrow-functions
       // reuse open fork for more integrated approach
-      forkDescriptor = githubDataSaga.next(put(LOCATION_CHANGE));
+      forkDescriptor = githubDataSaga.next(put(LOCATION_CHANGE as any as Action)); // TODO: investigate typing of put action
       expect(forkDescriptor.value).toEqual(cancel(forkDescriptor));
     }
   );

@@ -10,10 +10,14 @@ import React = require('react');
 const styles = require('./styles.css');
 import ToggleOption from '../ToggleOption';
 
+interface IMessageMap {
+  [locale: string]: ReactIntl.FormattedMessage.MessageDescriptor;
+}
+
 interface IProps {
   values: any[];
-  messages: Map<string, ReactIntl.FormattedMessage.MessageDescriptor>;
-  onToggle: (e: any) => any;
+  messages: IMessageMap;
+  onToggle?: (e: any) => any;
 }
 
 class Toggle extends React.Component<IProps, {}> {  // eslint-disable-line react/prefer-stateless-function
