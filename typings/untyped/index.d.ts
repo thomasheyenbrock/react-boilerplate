@@ -44,12 +44,6 @@ declare namespace Redux { //TODO: better method?
   }
 }
 
-declare namespace ReactRouter {
-  interface RouterProps {
-    render?: Element; //TODO: not sure why definition file does not have this. Is this not a public api attribute?
-  }
-}
-
 interface NodeModule {
   hot: {
     accept: (path: string, callback: () => void ) => void
