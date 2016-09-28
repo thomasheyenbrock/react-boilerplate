@@ -1,7 +1,12 @@
 import 'whatwg-fetch';
 
-export interface ResponseError extends Error {
-  response: Response;
+export class ResponseError extends Error {
+  public response: Response;
+
+  constructor(statusText: string, response: Response) {
+    super(statusText);
+    this.response = response;
+  }
 }
 
 /**
@@ -22,14 +27,12 @@ function parseJSON(response) {
  *
  * @return {object|undefined} Returns either the response, or throws an error
  */
-function checkStatus(response) : ResponseError {
+function checkStatus(response): ResponseError {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
 
-  const error = new Error(response.statusText) as ResponseError;
-  error.response = response; //TODO: fix typing on error object
-  throw error;
+  throw new ResponseError(response.statusText, response);
 }
 
 /**
@@ -40,7 +43,7 @@ function checkStatus(response) : ResponseError {
  *
  * @return {object}           An object containing either "data" or "err"
  */
-export default function request(url: string, options?: RequestInit) : Promise<{ data: any } | { err: ResponseError }> {
+export default function request(url: string, options?: RequestInit): Promise<{ data: any } | { err: ResponseError }> {
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)

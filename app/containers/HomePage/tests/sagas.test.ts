@@ -83,7 +83,7 @@ describe('githubDataSaga Saga', () => {
   });
 
   it('should finally cancel() the forked getReposWatcher saga',
-    function* githubDataSagaCancellable() {
+    function* githubDataSagaCancellable() { // tslint:disable-line:only-arrow-functions
       // reuse open fork for more integrated approach
       forkDescriptor = githubDataSaga.next(put(LOCATION_CHANGE));
       expect(forkDescriptor.value).toEqual(cancel(forkDescriptor));

@@ -1,7 +1,10 @@
 import expect = require('expect');
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React = require('react');
 
+import Button from 'components/Button';
+import { FormattedMessage } from 'react-intl';
+import messages from '../messages';
 import { FeaturePage } from '../index';
 import H1 from 'components/H1';
 
@@ -10,24 +13,24 @@ describe('<FeaturePage />', () => {
     const renderedComponent = shallow(
       <FeaturePage />
     );
-    expect(renderedComponent.contains(<H1>Features</H1>)).toEqual(true);
+    expect(renderedComponent.contains(
+      <H1>
+        <FormattedMessage {...messages.header} />
+      </H1>
+    )).toEqual(true);
   });
 
-  it('should link to "/"', () => {
-    const openRouteSpy = expect.createSpy();
-
+  it('should link to "/"', (done) => {
     // Spy on the openRoute method of the FeaturePage
-    const openRoute = (dest) => {
-      if (dest === '/') {
-        openRouteSpy();
-      }
+    const dispatch = (action) => {
+      expect(action.payload.args).toEqual('/');
+      done();
     };
 
-    const renderedComponent = mount(
-      <FeaturePage changeRoute={openRoute} />
+    const renderedComponent = shallow(
+      <FeaturePage dispatch={dispatch} />
     );
-    const button = renderedComponent.find('button');
-    button.simulate('click');
-    expect(openRouteSpy).toHaveBeenCalled();
+    const button = renderedComponent.find(Button);
+    button.prop('handleRoute')();
   });
 });

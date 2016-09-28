@@ -3,10 +3,11 @@
  */
 
 import expect = require('expect');
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React = require('react');
 
-import { NotFound } from 'containers/NotFoundPage';
+import { FormattedMessage } from 'react-intl';
+import { NotFound } from '../index';
 import H1 from 'components/H1';
 import Button from 'components/Button';
 
@@ -15,7 +16,13 @@ describe('<NotFound />', () => {
     const renderedComponent = shallow(
       <NotFound />
     );
-    expect(renderedComponent.contains(<H1>Page not found.</H1>)).toEqual(true);
+    expect(renderedComponent.contains(
+      <H1>
+        <FormattedMessage
+          id="boilerplate.containers.NotFoundPage.header"
+          defaultMessage={'Page not found.'}
+        />
+      </H1>)).toEqual(true);
   });
 
   it('should render a button', () => {
@@ -26,19 +33,16 @@ describe('<NotFound />', () => {
     expect(renderedButton.length).toEqual(1);
   });
 
-  it('should link to "/"', () => {
-    const changeRouteSpy = expect.createSpy();
-    const onChangeRoute = (dest) => {
-      if (dest === '/') {
-        changeRouteSpy();
-      }
+  it('should link to "/"', (done) => {
+    const dispatch = (action) => {
+      expect(action.payload.args).toEqual('/');
+      done();
     };
 
-    const renderedComponent = mount(
-      <NotFound changeRoute={onChangeRoute} />
+    const renderedComponent = shallow(
+      <NotFound dispatch={dispatch} />
     );
-    const button = renderedComponent.find('button');
-    button.simulate('click');
-    expect(changeRouteSpy).toHaveBeenCalled();
+    const button = renderedComponent.find(Button);
+    button.prop('handleRoute')();
   });
 });

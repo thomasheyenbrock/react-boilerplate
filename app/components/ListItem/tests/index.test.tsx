@@ -15,6 +15,6 @@ describe('<ListItem />', () => {
     const renderedComponent = shallow(
       <ListItem item={content} />
     );
-    expect(renderedComponent.text()).toBe(content).toEqual(true);
+    expect(renderedComponent.text()).toBe(content);
   });
 });

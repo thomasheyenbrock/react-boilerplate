@@ -17,12 +17,12 @@ import A from 'components/A';
 const styles = require('./styles.css');
 
 interface IRepoListItemProps {
-  item: any,
-  currentUser?: string,
+  item: any;
+  currentUser?: string;
 }
 
 export class RepoListItem extends React.Component<IRepoListItemProps, {}> { // eslint-disable-line react/prefer-stateless-function
-  render() {
+  public render() {
     const item = this.props.item;
     let nameprefix = '';
 
@@ -63,4 +63,4 @@ export class RepoListItem extends React.Component<IRepoListItemProps, {}> { // e
 export default connect(createSelector(
   selectCurrentUser(),
   (currentUser) => ({ currentUser })
-))(RepoListItem as any); //TODO: fix
+))(RepoListItem as any); // TODO: fix

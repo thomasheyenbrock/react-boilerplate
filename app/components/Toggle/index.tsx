@@ -1,13 +1,13 @@
-/**
-*
-* LocaleToggle
-*
-*/
+/*
+ *
+ * LocaleToggle
+ *
+ */
 
 import React = require('react');
 
 // import { FormattedMessage } from 'react-intl';
-import styles from './styles.css';
+const styles = require('./styles.css');
 import ToggleOption from '../ToggleOption';
 
 interface IProps {

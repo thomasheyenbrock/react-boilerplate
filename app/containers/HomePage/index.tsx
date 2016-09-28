@@ -36,20 +36,20 @@ import LoadingIndicator from 'components/LoadingIndicator';
 const styles = require('./styles.css');
 
 interface IHomePageProps {
-  changeRoute?: (string) => void,
-  loading?: boolean,
-  error?: Object,
-  repos?: any[],
-  onSubmitForm?: () => __React.EventHandler<__React.FormEvent>,
-  username?: string,
-  onChangeUsername?: () => __React.EventHandler<__React.FormEvent>,
+  changeRoute?: (route: string) => void;
+  loading?: boolean;
+  error?: Object;
+  repos?: any[];
+  onSubmitForm?: () => __React.EventHandler<__React.FormEvent>;
+  username?: string;
+  onChangeUsername?: () => __React.EventHandler<__React.FormEvent>;
 }
 
 export class HomePage extends React.Component<IHomePageProps, {}> {
   /**
    * when initial state username is not null, submit the form to load repos
    */
-  componentDidMount() {
+  private componentDidMount() {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
@@ -60,18 +60,18 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
    *
    * @param  {string} route The route we want to go to
    */
-  openRoute = (route) => {
+  private openRoute = (route) => {
     this.props.changeRoute(route);
   };
 
   /**
    * Changed route to '/features'
    */
-  openFeaturesPage = () => {
+  private openFeaturesPage = () => {
     this.openRoute('/features');
   };
 
-  render() {
+  public render() {
     let mainContent = null;
 
     // Show a loading indicator when we're loading
@@ -138,12 +138,12 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
     changeRoute: (url) => dispatch(push(url)),
     onSubmitForm: (evt) => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+      if (evt !== undefined && evt.preventDefault) { evt.preventDefault(); }
       dispatch(loadRepos());
     },
 
@@ -159,4 +159,4 @@ const mapStateToProps = createStructuredSelector({
 });
 
 // Wrap the component to inject dispatch and state into it
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage as any); //TODO: fix...
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage as any); // TODO: fix...

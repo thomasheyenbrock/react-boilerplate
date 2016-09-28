@@ -4,7 +4,6 @@
 const webpack = require('webpack');
 
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 const modules = [
   'app',
@@ -43,7 +42,6 @@ module.exports = {
 
   plugins: [
     new TsConfigPathsPlugin(),
-    new ForkCheckerPlugin(),
 
     new webpack.ProvidePlugin({
       // make fetch available

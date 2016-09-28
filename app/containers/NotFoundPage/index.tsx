@@ -19,6 +19,11 @@ interface INotFoundProps {
 }
 
 export class NotFound extends React.Component<INotFoundProps, {}> {
+
+  private redirect() {
+    this.props.dispatch(push('/'));
+  }
+
   public render() {
     return (
       <article>
@@ -26,9 +31,7 @@ export class NotFound extends React.Component<INotFoundProps, {}> {
           <FormattedMessage {...messages.header} />
         </H1>
         <Button
-          handleRoute={function redirect() {
-          this.props.dispatch(push('/'));
-        }}
+          handleRoute={() => this.redirect()}
         >
           <FormattedMessage {...messages.homeButton} />
         </Button>

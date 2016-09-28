@@ -24,16 +24,16 @@ export function checkStore(store) {
 /**
  * Inject an asynchronously loaded reducer
  */
-export function injectAsyncReducer(store, isValid) {
-  return function injectReducer(name, asyncReducer) {
-    if (!isValid) checkStore(store);
+export function injectAsyncReducer(store, isValid = false) {
+  return function injectReducer(name, asyncReducer) { // tslint:disable-line:only-arrow-functions
+    if (!isValid) { checkStore(store); }
 
     invariant(
       isString(name) && !isEmpty(name) && isFunction(asyncReducer),
       '(app/utils...) injectAsyncReducer: Expected `asyncReducer` to be a reducer function'
     );
 
-    if (Reflect.has(store.asyncReducers, name)) return;
+    if (Reflect.has(store.asyncReducers, name)) { return; };
 
     store.asyncReducers[name] = asyncReducer; // eslint-disable-line no-param-reassign
     store.replaceReducer(createReducer(store.asyncReducers));
@@ -43,9 +43,9 @@ export function injectAsyncReducer(store, isValid) {
 /**
  * Inject an asynchronously loaded saga
  */
-export function injectAsyncSagas(store, isValid) {
-  return function injectSagas(sagas) {
-    if (!isValid) checkStore(store);
+export function injectAsyncSagas(store, isValid = false) {
+  return function injectSagas(sagas) { // tslint:disable-line:only-arrow-functions
+    if (!isValid) { checkStore(store); }
 
     invariant(
       Array.isArray(sagas),
