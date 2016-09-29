@@ -9,7 +9,7 @@ declare module "warning" {
   export = warning;
 }
 
-declare module "expect" {
+declare module Expect {
   import EventHandler = __React.EventHandler;
   import SyntheticEvent = __React.SyntheticEvent;
   interface Spy extends EventHandler<SyntheticEvent> {

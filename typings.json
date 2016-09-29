@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "chai": "registry:npm/chai#3.5.0+20160723033700",
-    "enzyme": "registry:npm/enzyme#2.2.0+20160322031343",
     "graphql": "registry:npm/graphql#0.5.0+20160602041655",
     "history": "registry:npm/history#2.0.0+20160607172317",
     "markdown-it": "registry:npm/markdown-it#4.0.0+20160704212804",
@@ -13,7 +12,6 @@
     "chai": "registry:dt/chai#3.4.0+20160601211834",
     "chai-enzyme": "registry:dt/chai-enzyme#0.5.0+20160705230117",
     "cookie-parser": "registry:dt/cookie-parser#1.3.4+20160316155526",
-    "enzyme": "registry:dt/enzyme#2.4.1+20160919072335",
     "eventemitter3": "registry:dt/eventemitter3#1.1.1+20151208234524",
     "express": "registry:dt/express#4.0.0+20160708185218",
     "express-graphql": "registry:dt/express-graphql#0.0.0+20160626095004",
