@@ -25,6 +25,22 @@ module.exports = require('./webpack.base.babel')({
   }),
 
   plugins: [
+
+    function CustomErrorHandlerPlugin() {
+      this.plugin(
+        'done', (stats) => {
+          if (process.argv.indexOf('--watch') > -1) {
+            return;
+          }
+          if (stats.compilation.errors && stats.compilation.errors.length) {
+            console.error(stats.compilation.errors.join('\n\n')); // eslint-disable-line no-console
+            process.exit(1); // or throw new Error('webpack build failed.');
+          }
+          process.exit(0);
+        }
+      );
+    },
+
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       children: true,
