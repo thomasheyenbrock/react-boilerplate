@@ -1,12 +1,11 @@
 {
   "dependencies": {
-    "chai": "registry:npm/chai#3.5.0+20160723033700",
     "graphql": "registry:npm/graphql#0.5.0+20160602041655",
-    "history": "registry:npm/history#2.0.0+20160607172317",
     "markdown-it": "registry:npm/markdown-it#4.0.0+20160704212804",
     "redux-storage-engine-localstorage": "registry:npm/redux-storage-engine-localstorage#1.0.1+20160310030142"
   },
   "globalDependencies": {
+    "base16": "registry:dt/base16#1.0.0+20160902130643",
     "bluebird": "registry:dt/bluebird#3.0.0+20160907110115",
     "body-parser": "registry:dt/body-parser#0.0.0+20160619023215",
     "chai": "registry:dt/chai#3.4.0+20160601211834",
@@ -23,7 +22,6 @@
     "fontfaceobserver": "registry:dt/fontfaceobserver#0.0.0+20160602130518",
     "form-data": "registry:dt/form-data#0.0.0+20160724024111",
     "google.analytics/ga": "registry:dt/google.analytics/ga#0.0.0+20160317120654",
-    "history": "registry:dt/history#1.8.0+20160316155526",
     "invariant": "registry:dt/invariant#2.2.0+20160317120654",
     "jsonwebtoken": "registry:dt/jsonwebtoken#0.0.0+20160720062725",
     "jsx-chai": "registry:dt/jsx-chai#3.0.0+20160414124459",

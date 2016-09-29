@@ -1,5 +1,7 @@
 ///<reference path="../index.d.ts"/>
 
+declare type ReadableStream = NodeJS.ReadableStream; // TODO: proper fix for whatwg-fetch?
+
 declare module "offline-plugin/runtime" {
   export var install: Function;
 }
