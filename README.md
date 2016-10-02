@@ -7,6 +7,31 @@
 
 <br />
 
+Typescript
+
+<div align="center">
+  <!-- Dependency Status -->
+  <a href="https://david-dm.org/strikeforcezero/react-typescript-boilerplate">
+    <img src="https://david-dm.org/strikeforcezero/react-typescript-boilerplate.svg" alt="Dependency Status" />
+  </a>
+  <!-- devDependency Status -->
+  <a href="https://david-dm.org/strikeforcezero/react-typescript-boilerplate#info=devDependencies">
+    <img src="https://david-dm.org/strikeforcezero/react-typescript-boilerplate/dev-status.svg" alt="devDependency Status" />
+  </a>
+  <!-- Build Status -->
+  <a href="https://travis-ci.org/strikeforcezero/react-typescript-boilerplate">
+    <img src="https://travis-ci.org/strikeforcezero/react-typescript-boilerplate.svg" alt="Build Status" />
+  </a>
+  <!-- Test Coverage -->
+  <a href="https://coveralls.io/r/strikeforcezero/react-typescript-boilerplate">
+    <img src="https://coveralls.io/repos/github/strikeforcezero/react-typescript-boilerplate/badge.svg" alt="Test Coverage" />
+  </a>
+</div>
+
+---
+
+Upstream
+
 <div align="center">
   <!-- Dependency Status -->
   <a href="https://david-dm.org/mxstbr/react-boilerplate">
