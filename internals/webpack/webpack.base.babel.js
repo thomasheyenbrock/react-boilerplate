@@ -22,7 +22,7 @@ module.exports = (options) => ({
   module: {
     loaders: [{
       test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader',
+      loader: 'react-hot!awesome-typescript-loader',
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
       test: /\.css$/,
