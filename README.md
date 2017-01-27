@@ -15,8 +15,8 @@ Typescript
     <img src="https://david-dm.org/StrikeForceZero/react-typescript-boilerplate.svg" alt="Dependency Status" />
   </a>
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/StrikeForceZero/react-typescript-boilerplate#info=devDependencies">
-    <img src="https://david-dm.org/StrikeForceZero/react-typescript-boilerplate/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/StrikeForceZero/react-typescript-boilerplate?type=dev" title="devDependencies status">
+    <img src="https://david-dm.org/StrikeForceZero/react-typescript-boilerplate/dev-status.svg"/>
   </a>
   <!-- Build Status -->
   <a href="https://travis-ci.org/StrikeForceZero/react-typescript-boilerplate">
