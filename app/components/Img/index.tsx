@@ -9,9 +9,9 @@ import React = require('react');
 
 // We require the use of src and alt, only enforced by react in dev mode
 interface IImgProps {
-  src: string,
-  alt: string,
-  className?: string,
+  src: string;
+  alt: string;
+  className?: string;
 }
 
 class Img extends React.Component<IImgProps, {}> {

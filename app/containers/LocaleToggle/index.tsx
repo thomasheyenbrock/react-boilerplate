@@ -23,7 +23,7 @@ interface IState {
 
 }
 
-export class LocaleToggle extends React.Component<IProps, IState> { // eslint-disable-line
+export class LocaleToggle extends React.Component<IProps, IState> {
   public render() {
     return (
       <div className={styles.localeToggle}>

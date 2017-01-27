@@ -10,12 +10,12 @@ import React = require('react');
 
 const styles = require('./styles.css');
 
-interface IButtonProps extends React.ClassAttributes<Button>{
-  className?: string,
-  handleRoute?: __React.EventHandler<__React.MouseEvent>,
-  href?: string,
-  onClick?: __React.EventHandler<__React.MouseEvent>,
-  children?: React.ReactNode,
+interface IButtonProps extends React.ClassAttributes<Button> {
+  className?: string;
+  handleRoute?: __React.EventHandler<__React.MouseEvent>;
+  href?: string;
+  onClick?: __React.EventHandler<__React.MouseEvent>;
+  children?: React.ReactNode;
 }
 
 class Button extends React.Component<IButtonProps, {}> {

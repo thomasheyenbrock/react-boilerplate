@@ -15,12 +15,12 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./app"
   },
-  "filesGlob": [
-    "./**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
+  "include": [
+    "app",
+    "server",
+    "typings",
+    "typings/fixed/*.ts",
+    "typings/untyped/*.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,

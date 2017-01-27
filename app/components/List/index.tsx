@@ -1,11 +1,11 @@
 import React = require('react');
 
 const styles = require('./styles.css');
-import ListItem from "components/ListItem";
+import ListItem from 'components/ListItem';
 
 interface IListProps {
-  component: React.ComponentClass<any> | React.StatelessComponent<any>,
-  items?: any[],
+  component: React.ComponentClass<any> | React.StatelessComponent<any>;
+  items?: any[];
 }
 
 class List extends React.Component<IListProps, {}> {

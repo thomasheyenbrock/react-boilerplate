@@ -17,12 +17,12 @@ import RouterAction = ReactRouterRedux.RouterAction;
 const styles = require('./styles.css');
 
 interface IFeaturePageProps {
-  dispatch?: (action: RouterAction) => void
+  dispatch?: (action: RouterAction) => void;
 }
 
 export class FeaturePage extends React.Component<IFeaturePageProps, {}> {
 
-  openHomePage = () => {
+  private openHomePage = () => {
     this.props.dispatch(push('/'));
   };
 

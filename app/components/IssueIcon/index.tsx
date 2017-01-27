@@ -1,7 +1,7 @@
 import React = require('react');
 
 interface IIssueIconProps {
-  className?: string,
+  className?: string;
 }
 
 class IssueIcon extends React.Component<IIssueIconProps, {}> {

@@ -10,16 +10,16 @@ import createReducer from './reducers';
 import Middleware = Redux.Middleware;
 
 const sagaMiddleware = createSagaMiddleware();
-const devtools: any = window.devToolsExtension || (() => noop => noop);
+const devtools: any = window.devToolsExtension || (() => (noop) => noop);
 
-import {Task, SagaIterator} from "redux-saga";
+import {Task, SagaIterator} from 'redux-saga';
 
-export interface Store<T> extends Redux.Store<T> {
-  runSaga?: (saga: (...args: any[]) => SagaIterator, ...args: any[]) => Task; //TODO: cleanup
+export interface IStore<T> extends Redux.Store<T> {
+  runSaga?: (saga: (...args: any[]) => SagaIterator, ...args: any[]) => Task; // TODO: cleanup
   asyncReducers?: Object;
 }
 
-export default function configureStore(initialState = {}, history) : Store<any> {
+export default function configureStore(initialState = {}, history): IStore<any> {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
@@ -33,10 +33,10 @@ export default function configureStore(initialState = {}, history) : Store<any> 
     devtools(),
   ];
 
-  const store: Store<any> = createStore(
+  const store: IStore<any> = createStore(
     createReducer(),
     fromJS(initialState),
-    compose.apply(this, enhancers) //TODO: investigate why rest arguments don't work here
+    compose.apply(this, enhancers), // TODO: investigate why rest arguments don't work here
   );
 
   // Extensions

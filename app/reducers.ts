@@ -43,16 +43,16 @@ function routeReducer(state = routeInitialState, action) {
  */
 export default function createReducer(asyncReducers: Object = {}) {
 
-  const reducers : Object = {
+  const reducers: Object = {
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
   };
 
-  //TODO: remove after typescript supports rest operators
-  for(const key in asyncReducers){
+  // TODO: remove after typescript supports rest operators
+  for (const key in asyncReducers) {
 
-    if(!asyncReducers.hasOwnProperty(key)){ continue; }
+    if (!asyncReducers.hasOwnProperty(key)) { continue; }
 
     reducers[key] = asyncReducers[key];
   }

@@ -8,22 +8,22 @@ const selectGlobal = () => (state) => state.get('global');
 
 const selectCurrentUser = () => createSelector(
   selectGlobal(),
-  (globalState) => globalState.get('currentUser')
+  (globalState) => globalState.get('currentUser'),
 );
 
 const selectLoading = () => createSelector(
   selectGlobal(),
-  (globalState) => globalState.get('loading')
+  (globalState) => globalState.get('loading'),
 );
 
 const selectError = () => createSelector(
   selectGlobal(),
-  (globalState) => globalState.get('error')
+  (globalState) => globalState.get('error'),
 );
 
 const selectRepos = () => createSelector(
   selectGlobal(),
-  (globalState) => globalState.getIn(['userData', 'repositories'])
+  (globalState) => globalState.getIn(['userData', 'repositories']),
 );
 
 const selectLocationState = () => {

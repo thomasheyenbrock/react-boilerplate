@@ -1,8 +1,8 @@
 /**
-*
-* ToggleOption
-*
-*/
+ *
+ * ToggleOption
+ *
+ */
 
 import React = require('react');
 import { injectIntl } from 'react-intl';
