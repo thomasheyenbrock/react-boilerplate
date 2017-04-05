@@ -230,7 +230,7 @@
     "reselect": "2.5.4",
     "sanitize.css": "4.1.0",
     "ts-node": "^2.0.0",
-    "typescript": "^2.1.5",
+    "typescript": "^2.2.2",
     "typings": "^2.1.0",
     "warning": "3.0.0",
     "whatwg-fetch": "1.0.0"
