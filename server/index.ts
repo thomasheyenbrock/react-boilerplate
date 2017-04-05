@@ -3,7 +3,10 @@
 import express = require('express');
 import logger from './logger';
 
-const argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2)) as {
+  port?: number;
+  tunnel?: boolean;
+};
 import setup from './middlewares/frontendMiddleware';
 const isDev = process.env.NODE_ENV !== 'production';
 const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
