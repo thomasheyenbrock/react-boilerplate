@@ -6,6 +6,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import Redux from 'redux';
 
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
@@ -41,7 +42,7 @@ function routeReducer(state = routeInitialState, action) {
 /**
  * Creates the main reducer with the asynchronously loaded ones
  */
-export default function createReducer(asyncReducers: object = {}) {
+export default function createReducer(asyncReducers: Redux.ReducersMapObject = {}): Redux.Reducer<any> {
 
   const reducers = {
     route: routeReducer,
