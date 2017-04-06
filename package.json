@@ -253,6 +253,7 @@
     "@types/redux-immutable": "^3.0.33",
     "@types/redux-saga": "^0.10.5",
     "@types/reselect": "^2.0.27",
+    "@types/webpack": "^2.2.14",
     "awesome-typescript-loader": "^2.2.4",
     "babel-cli": "6.14.0",
     "babel-core": "6.14.0",
@@ -326,7 +327,7 @@
     "tslint-loader": "^3.4.3",
     "tslint-react": "^2.3.0",
     "url-loader": "0.5.7",
-    "webpack": "2.1.0-beta.25",
+    "webpack": "^2.3.3",
     "webpack-dev-middleware": "1.8.0",
     "webpack-hot-middleware": "2.12.2"
   }
