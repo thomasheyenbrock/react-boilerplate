@@ -5,14 +5,13 @@
  */
 import React = require('react');
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
-import Helmet = require('react-helmet');
+import { push, RouterAction } from 'react-router-redux';
+import Helmet from 'react-helmet';
 
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
 import Button from 'components/Button';
 import H1 from 'components/H1';
-import RouterAction = ReactRouterRedux.RouterAction;
 
 const styles = require('./styles.css');
 
@@ -29,12 +28,10 @@ export class FeaturePage extends React.Component<IFeaturePageProps, {}> {
   public render() {
     return (
       <div>
-        <Helmet
-          title="Feature Page"
-          meta={[
-            { name: 'description', content: 'Feature page of React.js Boilerplate application' },
-          ]}
-        />
+        <Helmet>
+          <title>Feature Page</title>
+          <meta name="description" content="Feature page of React.js Boilerplate application" />
+        </Helmet>
         <H1>
           <FormattedMessage {...messages.header} />
         </H1>

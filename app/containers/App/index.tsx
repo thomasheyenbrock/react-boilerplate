@@ -7,7 +7,7 @@
  */
 
 import React = require('react');
-import Helmet = require('react-helmet');
+import Helmet from 'react-helmet';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
@@ -29,10 +29,9 @@ class App extends React.Component<IAppProps, {}> {
       <div className={styles.wrapper}>
         <Helmet
           titleTemplate="%s - React.js Boilerplate"
-          meta={[
-          { name: 'description', content: 'A React.js Boilerplate application' },
-        ]}
-        />
+        >
+          <meta name="description" content="A React.js Boilerplate application" />
+        </Helmet>
         <A className={styles.logoWrapper} href="https://twitter.com/mxstbr">
           <Img className={styles.logo} src={Banner} alt="react-boilerplate - Logo"/>
         </A>
