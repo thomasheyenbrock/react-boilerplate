@@ -5,8 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+const { CheckerPlugin, TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
@@ -59,7 +58,7 @@ module.exports = (options) => ({
   },
   plugins: options.plugins.concat([
     new TsConfigPathsPlugin(),
-    new ForkCheckerPlugin(),
+    new CheckerPlugin(),
 
     new webpack.ProvidePlugin({
       // make fetch available
