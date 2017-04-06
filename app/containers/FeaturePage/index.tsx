@@ -24,7 +24,7 @@ export class FeaturePage extends React.Component<IFeaturePageProps, {}> {
 
   private openHomePage = () => {
     this.props.dispatch(push('/'));
-  };
+  }
 
   public render() {
     return (

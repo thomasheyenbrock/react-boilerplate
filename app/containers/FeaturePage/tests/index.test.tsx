@@ -11,12 +11,12 @@ import H1 from 'components/H1';
 describe('<FeaturePage />', () => {
   it('should render its heading', () => {
     const renderedComponent = shallow(
-      <FeaturePage />
+      <FeaturePage />,
     );
     expect(renderedComponent.contains(
       <H1>
         <FormattedMessage {...messages.header} />
-      </H1>
+      </H1>,
     )).toEqual(true);
   });
 
@@ -28,7 +28,7 @@ describe('<FeaturePage />', () => {
     };
 
     const renderedComponent = shallow(
-      <FeaturePage dispatch={dispatch} />
+      <FeaturePage dispatch={dispatch} />,
     );
     const button = renderedComponent.find(Button);
     button.prop('handleRoute')();

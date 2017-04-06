@@ -88,6 +88,6 @@ describe('githubDataSaga Saga', () => {
       // reuse open fork for more integrated approach
       forkDescriptor = githubDataSaga.next(put(LOCATION_CHANGE as any as Action)); // TODO: investigate typing of put action
       expect(forkDescriptor.value).toEqual(cancel(forkDescriptor));
-    }
+    },
   );
 });

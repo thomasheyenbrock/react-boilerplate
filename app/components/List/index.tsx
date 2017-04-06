@@ -11,7 +11,7 @@ interface IListProps {
 class List extends React.Component<IListProps, {}> {
   public render() {
     const ComponentToRender = this.props.component;
-    let content: JSX.Element|JSX.Element[] = (<div></div>);
+    let content: JSX.Element|JSX.Element[] = (<div />);
 
     // If we have items, render them
     if (this.props.items) {

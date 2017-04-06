@@ -38,7 +38,7 @@ const styles = require('./styles.css');
 interface IHomePageProps {
   changeRoute?: (route: string) => void;
   loading?: boolean;
-  error?: Object;
+  error?: Error | false;
   repos?: any[];
   onSubmitForm?: () => __React.EventHandler<__React.FormEvent>;
   username?: string;
@@ -62,14 +62,14 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
    */
   private openRoute = (route) => {
     this.props.changeRoute(route);
-  };
+  }
 
   /**
    * Changed route to '/features'
    */
   private openFeaturesPage = () => {
     this.openRoute('/features');
-  };
+  }
 
   public render() {
     let mainContent = null;

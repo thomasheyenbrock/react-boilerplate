@@ -13,7 +13,7 @@ describe('<ListItem />', () => {
   it('should render the content passed to it', () => {
     const content = 'Hello world!';
     const renderedComponent = shallow(
-      <ListItem item={content} />
+      <ListItem item={content} />,
     );
     expect(renderedComponent.text()).toBe(content);
   });

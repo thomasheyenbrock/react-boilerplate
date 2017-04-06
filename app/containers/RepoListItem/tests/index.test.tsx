@@ -28,7 +28,7 @@ describe('<RepoListItem />', () => {
 
   it('should render a ListItem', () => {
     const renderedComponent = shallow(
-      <RepoListItem item={item} />
+      <RepoListItem item={item} />,
     );
     expect(renderedComponent.find(ListItem).length).toEqual(1);
   });
@@ -37,7 +37,7 @@ describe('<RepoListItem />', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
         <RepoListItem item={item} currentUser={item.owner.login} />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(renderedComponent.text().indexOf(item.owner.login)).toBeLessThan(0);
   });
@@ -46,7 +46,7 @@ describe('<RepoListItem />', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
         <RepoListItem item={item} currentUser="nikgraf" />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(renderedComponent.text().indexOf(item.owner.login)).toBeGreaterThan(-1);
   });
@@ -55,7 +55,7 @@ describe('<RepoListItem />', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
         <RepoListItem item={item} />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(renderedComponent.text().indexOf(item.name)).toBeGreaterThan(-1);
   });
@@ -64,7 +64,7 @@ describe('<RepoListItem />', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
         <RepoListItem item={item} />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(renderedComponent.text().indexOf(item.open_issues_count)).toBeGreaterThan(1);
   });
@@ -73,7 +73,7 @@ describe('<RepoListItem />', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
         <RepoListItem item={item} />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(renderedComponent.find('svg').length).toEqual(1);
   });

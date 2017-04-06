@@ -19,11 +19,7 @@ interface IProps {
   onLocaleToggle?: (e: any) => any;
 }
 
-interface IState {
-
-}
-
-export class LocaleToggle extends React.Component<IProps, IState> {
+export class LocaleToggle extends React.Component<IProps, {}> {
   public render() {
     return (
       <div className={styles.localeToggle}>
@@ -35,7 +31,7 @@ export class LocaleToggle extends React.Component<IProps, IState> {
 
 const mapStateToProps = createSelector(
   selectLocale(),
-  (locale) => ({ locale })
+  (locale) => ({ locale }),
 );
 
 export function mapDispatchToProps(dispatch) {

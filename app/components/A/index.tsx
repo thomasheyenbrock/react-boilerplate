@@ -16,7 +16,7 @@ interface IAProps {
 class A extends React.Component<IAProps, {}> {
   public render() {
     return(
-      <a className={ this.props.className || styles.link } {...this.props} />
+      <a className={this.props.className || styles.link} {...this.props} />
     );
   }
 }

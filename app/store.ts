@@ -16,10 +16,10 @@ import {Task, SagaIterator} from 'redux-saga';
 
 export interface IStore<T> extends Redux.Store<T> {
   runSaga?: (saga: (...args: any[]) => SagaIterator, ...args: any[]) => Task; // TODO: cleanup
-  asyncReducers?: Object;
+  asyncReducers?: object;
 }
 
-export default function configureStore(initialState = {}, history): IStore<any> {
+export default function configureStore(initialState: object = {}, history): IStore<any> {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state

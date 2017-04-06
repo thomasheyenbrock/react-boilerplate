@@ -8,7 +8,7 @@ import ListItem from 'components/ListItem';
 describe('<List />', () => {
   it('should render the component if no items are passed', () => {
     const renderedComponent = render(
-      <List component={ListItem} />
+      <List component={ListItem} />,
     );
     expect(renderedComponent.find(ListItem)).toExist();
   });
@@ -19,7 +19,7 @@ describe('<List />', () => {
       'World',
     ];
     const renderedComponent = render(
-      <List items={items} component={ListItem} />
+      <List items={items} component={ListItem} />,
     );
     expect(renderedComponent.find(items)).toExist();
   });

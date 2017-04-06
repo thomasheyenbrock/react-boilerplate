@@ -8,12 +8,12 @@ import A from 'components/A';
 describe('<Footer />', () => {
   it('should render the copyright notice', () => {
     const renderedComponent = shallow(
-      <Footer />
+      <Footer />,
     );
     expect(renderedComponent.contains(
       <section>
         <p>This project is licensed under the MIT license.</p>
-      </section>
+      </section>,
     )).toEqual(true);
   });
 
@@ -22,7 +22,7 @@ describe('<Footer />', () => {
     expect(renderedComponent.contains(
       <section>
         <p>Made with love by <A href="https://twitter.com/mxstbr">Max Stoiber</A>.</p>
-      </section>
+      </section>,
     )).toEqual(true);
   });
 });

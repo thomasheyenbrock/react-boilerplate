@@ -15,9 +15,11 @@ interface IProps {
 
 class ToggleOption extends React.Component<IProps, {}> {
   public render() {
-    return (<option value={this.props.value}>
-      {this.props.intl.formatMessage(this.props.message)}
-    </option>);
+    return (
+      <option value={this.props.value}>
+        {this.props.intl.formatMessage(this.props.message)}
+      </option>
+    );
   }
 }
 export default injectIntl(ToggleOption);

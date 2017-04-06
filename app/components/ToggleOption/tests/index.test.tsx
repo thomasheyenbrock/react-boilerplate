@@ -17,7 +17,7 @@ describe('<ToggleOption />', () => {
     const renderedComponent = shallow(
       <IntlProvider locale="en">
         <ToggleOption value="en" message={message.enMessage} />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(renderedComponent.contains(<ToggleOption value="en" message={message.enMessage} />)).toEqual(true);
   });

@@ -17,5 +17,5 @@ export function getLocaleMessages(locales) {
 }
 
 export default defineMessages(
-  getLocaleMessages(appLocales)
+  getLocaleMessages(appLocales),
 );

@@ -13,7 +13,7 @@ import { selectUsername } from 'containers/HomePage/selectors';
 /**
  * Github repos request/response handler
  */
-export function* getRepos() : IterableIterator<any> { //TODO: fix return value
+export function* getRepos(): IterableIterator<any> { // TODO: fix return value
   // Select username from store
   const username = yield select(selectUsername());
   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
@@ -31,7 +31,7 @@ export function* getRepos() : IterableIterator<any> { //TODO: fix return value
 /**
  * Watches for LOAD_REPOS action and calls handler
  */
-export function* getReposWatcher() : IterableIterator<any> { //TODO: fix return value
+export function* getReposWatcher(): IterableIterator<any> { // TODO: fix return value
   while (yield take(LOAD_REPOS)) {
     yield call(getRepos);
   }
@@ -40,7 +40,7 @@ export function* getReposWatcher() : IterableIterator<any> { //TODO: fix return 
 /**
  * Root saga manages watcher lifecycle
  */
-export function* githubData() : IterableIterator<any> { //TODO: fix return value
+export function* githubData(): IterableIterator<any> { // TODO: fix return value
   // Fork watcher so we can continue execution
   const watcher = yield fork(getReposWatcher);
 
