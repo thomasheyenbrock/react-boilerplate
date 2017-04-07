@@ -5,7 +5,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const { CheckerPlugin, TsConfigPathsPlugin } = require('awesome-typescript-loader');
+const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
