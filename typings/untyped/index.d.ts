@@ -1,21 +1,17 @@
-///<reference path="../index.d.ts"/>
-
-declare type ReadableStream = NodeJS.ReadableStream; // TODO: proper fix for whatwg-fetch?
-
 declare module "offline-plugin/runtime" {
-  export var install: Function;
+  export const install: Function;
 }
 
 declare module "warning" {
-  var warning: (boolean, string) => void;
+  const warning: (boolean, string) => void;
   export = warning;
 }
 
 declare module Expect {
-  import EventHandler = __React.EventHandler;
-  import SyntheticEvent = __React.SyntheticEvent;
-  interface Spy extends EventHandler<SyntheticEvent> {
-    (): EventHandler<SyntheticEvent>;
+  import EventHandler = React.EventHandler;
+  import SyntheticEvent = React.SyntheticEvent;
+  interface Spy extends EventHandler<SyntheticEvent<any>> {
+    (): EventHandler<SyntheticEvent<any>>;
   }
 }
 
@@ -27,19 +23,7 @@ declare module _ {
 
 
 declare module "react-router-scroll" {
-  export var useScroll: Function; //TODO: needs type definition
-}
-
-declare namespace Redux { //TODO: better method?
-
-  export interface IDevTools extends IDevToolsStatic {
-    new (): JSX.ElementClass
-  }
-
-  export interface IDevToolsStatic extends Function {
-    instrument(): (opts: any) => any;
-    updateStore(store: Redux.Store<any>) : void;
-  }
+  export const useScroll: Function; //TODO: needs type definition
 }
 
 interface NodeModule {
@@ -50,5 +34,4 @@ interface NodeModule {
 
 interface Window {
   Intl: any;
-  devToolsExtension: Redux.IDevTools;
 }

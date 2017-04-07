@@ -18,7 +18,7 @@ import LoadingIndicator from 'components/LoadingIndicator';
 describe('<HomePage />', () => {
   it('should render the loading indicator when its loading', () => {
     const renderedComponent = shallow(
-      <HomePage loading />
+      <HomePage loading />,
     );
     expect(renderedComponent.contains(<List component={LoadingIndicator} />)).toEqual(true);
   });
@@ -28,14 +28,14 @@ describe('<HomePage />', () => {
       <IntlProvider locale="en">
         <HomePage
           loading={false}
-          error={{ message: 'Loading failed!' }}
+          error={{ message: 'Loading failed!' } as Error}
         />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(
       renderedComponent
         .text()
-        .indexOf('Something went wrong, please try again!')
+        .indexOf('Something went wrong, please try again!'),
     ).toBeGreaterThan(-1);
   });
 
@@ -47,7 +47,7 @@ describe('<HomePage />', () => {
           username="Not Empty"
           onSubmitForm={submitSpy}
         />
-      </IntlProvider>
+      </IntlProvider>,
     );
     expect(submitSpy).toHaveBeenCalled();
   });
@@ -66,7 +66,7 @@ describe('<HomePage />', () => {
       <HomePage
         repos={repos}
         error={false}
-      />
+      />,
     );
 
     expect(renderedComponent.contains(<List items={repos} component={RepoListItem} />)).toEqual(true);
@@ -85,7 +85,7 @@ describe('<HomePage />', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
         <HomePage loading changeRoute={openRoute} />
-      </IntlProvider>
+      </IntlProvider>,
     );
     const button = renderedComponent.find('button');
     button.simulate('click');

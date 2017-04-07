@@ -28,7 +28,7 @@ describe('<LanguageProvider />', () => {
         <LanguageProvider messages={translationMessages}>
           <FormattedMessage {...messages.someMessage} />
         </LanguageProvider>
-      </Provider>
+      </Provider>,
     );
     expect(renderedComponent.contains(<FormattedMessage {...messages.someMessage} />)).toEqual(true);
   });

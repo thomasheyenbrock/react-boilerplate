@@ -7,7 +7,7 @@ import React = require('react');
 describe('<LoadingIndicator />', () => {
   it('should render 14 divs', () => {
     const renderedComponent = shallow(
-      <LoadingIndicator />
+      <LoadingIndicator />,
     );
     expect(renderedComponent.find('div').length).toEqual(14);
   });

@@ -14,7 +14,7 @@ describe('<Button />', () => {
     const renderedComponent = shallow(
       <Button href="http://mxstbr.com">
         {children}
-      </Button>
+      </Button>,
     );
     expect(renderedComponent.contains(children)).toEqual(true);
   });
@@ -30,8 +30,8 @@ describe('<Button />', () => {
   });
 
   it('should render a button to change route if the handleRoute prop is specified', () => {
-    // tslint:disable-next-line:only-arrow-functions
-    const renderedComponent = shallow(<Button handleRoute={function handler() { /* empty */ }} />);
+    function handler() { /* empty */ }
+    const renderedComponent = shallow(<Button handleRoute={handler} />);
 
     expect(renderedComponent.find('button').length).toEqual(1);
   });

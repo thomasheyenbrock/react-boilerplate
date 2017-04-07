@@ -5,8 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+const { CheckerPlugin, TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
@@ -22,7 +21,7 @@ module.exports = (options) => ({
   module: {
     loaders: [{
       test: /\.tsx?$/,
-      loader: 'react-hot!awesome-typescript-loader',
+      loader: 'react-hot-loader!awesome-typescript-loader',
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
       test: /\.css$/,
@@ -44,7 +43,7 @@ module.exports = (options) => ({
       test: /\.(jpg|png|gif)$/,
       loaders: [
         'file-loader',
-        'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
+        'image-webpack-loader?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
       ],
     }, {
       test: /\.html$/,
@@ -59,11 +58,11 @@ module.exports = (options) => ({
   },
   plugins: options.plugins.concat([
     new TsConfigPathsPlugin(),
-    new ForkCheckerPlugin(),
+    new CheckerPlugin(),
 
     new webpack.ProvidePlugin({
       // make fetch available
-      fetch: 'exports?self.fetch!whatwg-fetch',
+      fetch: 'exports-loader?self.fetch!whatwg-fetch',
     }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`

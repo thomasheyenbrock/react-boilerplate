@@ -6,6 +6,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import Redux from 'redux';
 
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
@@ -41,21 +42,14 @@ function routeReducer(state = routeInitialState, action) {
 /**
  * Creates the main reducer with the asynchronously loaded ones
  */
-export default function createReducer(asyncReducers: Object = {}) {
+export default function createReducer(asyncReducers: Redux.ReducersMapObject = {}): Redux.Reducer<any> {
 
-  const reducers: Object = {
+  const reducers = {
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
+    ...asyncReducers,
   };
-
-  // TODO: remove after typescript supports rest operators
-  for (const key in asyncReducers) {
-
-    if (!asyncReducers.hasOwnProperty(key)) { continue; }
-
-    reducers[key] = asyncReducers[key];
-  }
 
   return combineReducers(reducers);
 }

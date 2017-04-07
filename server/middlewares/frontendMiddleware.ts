@@ -1,16 +1,21 @@
 /* eslint-disable global-require */
-import express = require('express');
+import Express = require('express');
 import path = require('path');
 import compression = require('compression');
+import Webpack = require('webpack');
+import WebpackDevMiddleware = require('webpack-dev-middleware');
+import WebpackHotMiddleware = require('webpack-hot-middleware');
 const pkg = require(path.resolve(process.cwd(), 'package.json'));
 
+export interface IOptions {
+  publicPath: string;
+  outputPath: string;
+}
+
 // Dev middleware
-const addDevMiddlewares = (app, webpackConfig) => {
-  const webpack = require('webpack');
-  const webpackDevMiddleware = require('webpack-dev-middleware');
-  const webpackHotMiddleware = require('webpack-hot-middleware');
-  const compiler = webpack(webpackConfig);
-  const middleware = webpackDevMiddleware(compiler, {
+const addDevMiddlewares = (app: Express.Application, webpackConfig: Webpack.Configuration) => {
+  const compiler = Webpack(webpackConfig);
+  const middleware = WebpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
     silent: true,
@@ -18,7 +23,7 @@ const addDevMiddlewares = (app, webpackConfig) => {
   });
 
   app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
+  app.use(WebpackHotMiddleware(compiler));
 
   // Since webpackDevMiddleware uses memory-fs internally to store build
   // artifacts, we use it instead
@@ -32,7 +37,7 @@ const addDevMiddlewares = (app, webpackConfig) => {
   }
 
   app.get('*', (req, res) => {
-    fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
+    fs.readFile(path.join(compiler.options.output.path, 'index.html'), (err, file) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -43,7 +48,7 @@ const addDevMiddlewares = (app, webpackConfig) => {
 };
 
 // Production middlewares
-const addProdMiddlewares = (app, options) => {
+const addProdMiddlewares = (app: Express.Application, options: IOptions) => {
   const publicPath = options.publicPath || '/';
   const outputPath = options.outputPath || path.resolve(process.cwd(), 'build');
 
@@ -51,7 +56,7 @@ const addProdMiddlewares = (app, options) => {
   // smaller (applies also to assets). You can read more about that technique
   // and other good practices on official Express.js docs http://mxs.is/googmy
   app.use(compression());
-  app.use(publicPath, express.static(outputPath));
+  app.use(publicPath, Express.static(outputPath));
 
   app.get('*', (req, res) => res.sendFile(path.resolve(outputPath, 'index.html')));
 };
@@ -59,13 +64,13 @@ const addProdMiddlewares = (app, options) => {
 /**
  * Front-end middleware
  */
-export default (app, options) => {
+export default (app: Express.Application, options: IOptions) => {
   const isProd = process.env.NODE_ENV === 'production';
 
   if (isProd) {
     addProdMiddlewares(app, options);
   } else {
-    const webpackConfig = require('../../internals/webpack/webpack.dev.babel');
+    const webpackConfig = require('../../internals/webpack/webpack.dev.babel') as Webpack.Configuration;
     addDevMiddlewares(app, webpackConfig);
   }
 

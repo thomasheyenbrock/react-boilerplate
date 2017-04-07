@@ -8,14 +8,14 @@
 
 import React = require('react');
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import { IntlProvider } from 'react-intl';
 import { selectLocale } from './selectors';
 
 interface IProps {
-  locale: string;
-  messages: Map<string, string>;
-  children: React.ReactNode;
+  locale?: string;
+  messages: { [locale: string]: { [id: string]: string; }; };
+  children?: React.ReactNode;
 }
 
 export class LanguageProvider extends React.Component<IProps, {}> { // eslint-disable-line react/prefer-stateless-function
@@ -28,9 +28,8 @@ export class LanguageProvider extends React.Component<IProps, {}> { // eslint-di
   }
 }
 
-const mapStateToProps = createSelector(
-  selectLocale(),
-  (locale) => ({ locale }),
-);
+const mapStateToProps = createStructuredSelector({
+  locale: selectLocale(),
+});
 
-export default connect(mapStateToProps)(LanguageProvider);
+export default connect<{}, {}, IProps>(mapStateToProps)(LanguageProvider);

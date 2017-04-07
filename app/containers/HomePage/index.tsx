@@ -7,7 +7,7 @@
 import React = require('react');
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import Helmet = require('react-helmet');
+import Helmet from 'react-helmet';
 
 import messages from './messages';
 import { createStructuredSelector } from 'reselect';
@@ -38,11 +38,11 @@ const styles = require('./styles.css');
 interface IHomePageProps {
   changeRoute?: (route: string) => void;
   loading?: boolean;
-  error?: Object;
+  error?: Error | false;
   repos?: any[];
-  onSubmitForm?: () => __React.EventHandler<__React.FormEvent>;
+  onSubmitForm?: () => React.EventHandler<React.FormEvent<any>>;
   username?: string;
-  onChangeUsername?: () => __React.EventHandler<__React.FormEvent>;
+  onChangeUsername?: () => React.EventHandler<React.FormEvent<any>>;
 }
 
 export class HomePage extends React.Component<IHomePageProps, {}> {
@@ -62,14 +62,14 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
    */
   private openRoute = (route) => {
     this.props.changeRoute(route);
-  };
+  }
 
   /**
    * Changed route to '/features'
    */
   private openFeaturesPage = () => {
     this.openRoute('/features');
-  };
+  }
 
   public render() {
     let mainContent = null;
@@ -92,12 +92,10 @@ export class HomePage extends React.Component<IHomePageProps, {}> {
 
     return (
       <article>
-        <Helmet
-          title="Home Page"
-          meta={[
-            { name: 'description', content: 'A React.js Boilerplate application homepage' },
-          ]}
-        />
+        <Helmet>
+          <title>Home Page</title>
+          <meta name="description" content="A React.js Boilerplate application homepage" />
+        </Helmet>
         <div>
           <section className={`${styles.textSection} ${styles.centered}`}>
             <H2>
@@ -159,4 +157,4 @@ const mapStateToProps = createStructuredSelector({
 });
 
 // Wrap the component to inject dispatch and state into it
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage as any); // TODO: fix...
+export default connect<{}, {}, IHomePageProps>(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -6,19 +6,23 @@
 
 import React = require('react');
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { push, RouterAction} from 'react-router-redux';
 
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
 import Button from 'components/Button';
 import H1 from 'components/H1';
-import RouterAction = ReactRouterRedux.RouterAction;
 
 interface INotFoundProps {
-  dispatch?: (action: RouterAction) => void,
+  dispatch?: (action: RouterAction) => void;
 }
 
 export class NotFound extends React.Component<INotFoundProps, {}> {
+
+  constructor(props) {
+    super(props);
+    this.redirect = this.redirect.bind(this);
+  }
 
   private redirect() {
     this.props.dispatch(push('/'));
@@ -31,7 +35,7 @@ export class NotFound extends React.Component<INotFoundProps, {}> {
           <FormattedMessage {...messages.header} />
         </H1>
         <Button
-          handleRoute={() => this.redirect()}
+          handleRoute={this.redirect}
         >
           <FormattedMessage {...messages.homeButton} />
         </Button>

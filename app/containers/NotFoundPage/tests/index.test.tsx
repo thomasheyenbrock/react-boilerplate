@@ -14,7 +14,7 @@ import Button from 'components/Button';
 describe('<NotFound />', () => {
   it('should render the Page Not Found text', () => {
     const renderedComponent = shallow(
-      <NotFound />
+      <NotFound />,
     );
     expect(renderedComponent.contains(
       <H1>
@@ -27,7 +27,7 @@ describe('<NotFound />', () => {
 
   it('should render a button', () => {
     const renderedComponent = shallow(
-      <NotFound />
+      <NotFound />,
     );
     const renderedButton = renderedComponent.find(Button);
     expect(renderedButton.length).toEqual(1);
@@ -40,9 +40,9 @@ describe('<NotFound />', () => {
     };
 
     const renderedComponent = shallow(
-      <NotFound dispatch={dispatch} />
+      <NotFound dispatch={dispatch} />,
     );
     const button = renderedComponent.find(Button);
-    button.prop('handleRoute')();
+    button.prop<() => void>('handleRoute')();
   });
 });

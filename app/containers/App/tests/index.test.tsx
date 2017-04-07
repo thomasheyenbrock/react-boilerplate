@@ -8,7 +8,7 @@ import React = require('react');
 describe('<App />', () => {
   it('should render the logo', () => {
     const renderedComponent = shallow(
-      <App />
+      <App />,
     );
     expect(renderedComponent.find('Img').length).toEqual(1);
   });
@@ -18,14 +18,14 @@ describe('<App />', () => {
     const renderedComponent = shallow(
       <App>
         {children}
-      </App>
+      </App>,
     );
     expect(renderedComponent.contains(children)).toEqual(true);
   });
 
   it('should render the footer', () => {
     const renderedComponent = shallow(
-      <App />
+      <App />,
     );
     expect(renderedComponent.find(Footer).length).toEqual(1);
   });
