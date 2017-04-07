@@ -1,11 +1,9 @@
-declare type ReadableStream = NodeJS.ReadableStream; // TODO: proper fix for whatwg-fetch?
-
 declare module "offline-plugin/runtime" {
-  export var install: Function;
+  export const install: Function;
 }
 
 declare module "warning" {
-  var warning: (boolean, string) => void;
+  const warning: (boolean, string) => void;
   export = warning;
 }
 
@@ -25,7 +23,7 @@ declare module _ {
 
 
 declare module "react-router-scroll" {
-  export var useScroll: Function; //TODO: needs type definition
+  export const useScroll: Function; //TODO: needs type definition
 }
 
 interface NodeModule {

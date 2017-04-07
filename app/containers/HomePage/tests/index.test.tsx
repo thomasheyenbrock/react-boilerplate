@@ -28,7 +28,7 @@ describe('<HomePage />', () => {
       <IntlProvider locale="en">
         <HomePage
           loading={false}
-          error={{ message: 'Loading failed!' }}
+          error={{ message: 'Loading failed!' } as Error}
         />
       </IntlProvider>,
     );

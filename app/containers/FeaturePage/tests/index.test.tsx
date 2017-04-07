@@ -31,6 +31,6 @@ describe('<FeaturePage />', () => {
       <FeaturePage dispatch={dispatch} />,
     );
     const button = renderedComponent.find(Button);
-    button.prop('handleRoute')();
+    button.prop<() => void>('handleRoute')();
   });
 });

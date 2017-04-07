@@ -14,7 +14,7 @@ import { selectLocale } from './selectors';
 
 interface IProps {
   locale?: string;
-  messages: Map<string, string>;
+  messages: { [locale: string]: { [id: string]: string; }; };
   children?: React.ReactNode;
 }
 

@@ -5,15 +5,14 @@
  */
 
 import React = require('react');
-import { injectIntl } from 'react-intl';
+import ReactIntl, { injectIntl } from 'react-intl';
 
 interface IProps {
   value: string;
   message: ReactIntl.FormattedMessage.MessageDescriptor;
-  intl?: ReactIntl.InjectedIntlProps;
 }
 
-class ToggleOption extends React.Component<IProps, {}> {
+class ToggleOptionInternal extends React.Component<IProps & ReactIntl.InjectedIntlProps, {}> {
   public render() {
     return (
       <option value={this.props.value}>
@@ -22,4 +21,16 @@ class ToggleOption extends React.Component<IProps, {}> {
     );
   }
 }
-export default injectIntl(ToggleOption);
+
+// prevent the requirement of passing in intl prop. TODO: better way to do this?
+// tslint:disable:max-classes-per-file
+class ToggleOption extends React.Component<IProps, {}> {
+  public render() {
+    const ToggleOptionInternalInjected = injectIntl(ToggleOptionInternal);
+    return (
+      <ToggleOptionInternalInjected {...this.props} />
+    );
+  }
+}
+
+export default ToggleOption;

@@ -5,6 +5,7 @@
 import request, { ResponseError } from '../request';
 import sinon = require ('sinon');
 import expect = require('expect');
+import { IStubedWindow } from './stubs';
 
 declare var window: IStubedWindow & Window;
 
