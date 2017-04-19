@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const logger = require('../../server/logger');
+const { Logger } = require('../../server/logger');
 const cheerio = require('cheerio');
 const pkg = require(path.resolve(process.cwd(), 'package.json'));
 const dllPlugin = pkg.dllPlugin;
@@ -86,7 +86,7 @@ function dependencyHandlers() {
     const manifestPath = path.resolve(dllPath, 'reactBoilerplateDeps.json');
 
     if (!fs.existsSync(manifestPath)) {
-      logger.error('The DLL manifest is missing. Please run `npm run build:dll`');
+      Logger.error('The DLL manifest is missing. Please run `npm run build:dll`');
       process.exit(0);
     }
 
@@ -104,9 +104,9 @@ function dependencyHandlers() {
   return dllManifests.map((manifestPath) => {
     if (!fs.existsSync(path)) {
       if (!fs.existsSync(manifestPath)) {
-        logger.error(`The following Webpack DLL manifest is missing: ${path.basename(manifestPath)}`);
-        logger.error(`Expected to find it in ${dllPath}`);
-        logger.error('Please run: npm run build:dll');
+        Logger.error(`The following Webpack DLL manifest is missing: ${path.basename(manifestPath)}`);
+        Logger.error(`Expected to find it in ${dllPath}`);
+        Logger.error('Please run: npm run build:dll');
 
         process.exit(0);
       }

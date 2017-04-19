@@ -8,7 +8,7 @@ const divider = chalk.gray('\n-----------------------------------');
 /**
  * Logger middleware, you can customize it to make messages more personal
  */
-class Logger {
+export class Logger {
 
   // Called whenever there's an error on the server we want to print
   public static error(err) {
