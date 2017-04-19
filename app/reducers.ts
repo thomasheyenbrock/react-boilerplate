@@ -31,9 +31,14 @@ function routeReducer(state = routeInitialState, action) {
   switch (action.type) {
     /* istanbul ignore next */
     case LOCATION_CHANGE:
-      return state.merge({
+      const mergeState = state.merge({
         locationBeforeTransitions: action.payload,
       });
+      console.log(action, window.swUpdate);
+      if (window.swUpdate) {
+        window.location.reload();
+      }
+      return mergeState;
     default:
       return state;
   }

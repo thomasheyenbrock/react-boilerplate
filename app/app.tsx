@@ -25,6 +25,8 @@ import * as FontFaceObserver from 'fontfaceobserver';
 import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
 
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+
 // Import Language Provider
 import LanguageProvider from 'app/containers/LanguageProvider';
 
@@ -115,5 +117,17 @@ if (!window.Intl) {
 // it's not most important operation and if main code fails,
 // we do not want it installed
 if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install();
+  OfflinePluginRuntime.install({
+    onUpdating: () => {
+      console.log('SW Event:', 'onUpdating');
+    },
+    onUpdateReady: () => {
+      console.log('SW Event:', 'onUpdateReady');
+      return OfflinePluginRuntime.applyUpdate();
+    },
+    onUpdated: () => {
+      console.log('SW Event:', 'onUpdated');
+      window.swUpdate = true;
+    },
+  });
 }

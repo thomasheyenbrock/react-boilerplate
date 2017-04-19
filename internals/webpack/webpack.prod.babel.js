@@ -106,6 +106,14 @@ module.exports = require('./webpack.base.babel')({
       safeToUseOptionalCaches: true,
 
       AppCache: false,
+
+      updateStrategy: 'changed',
+      autoUpdate: 1000 * 60 * 15,
+
+      ServiceWorker: {
+        events: true,
+        navigateFallbackURL: '/',
+      },
     }),
   ],
 });
