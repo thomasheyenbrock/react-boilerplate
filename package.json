@@ -35,7 +35,7 @@
     "clean:all": "npm run analyze:clean && npm run test:clean && npm run build:clean",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:eslint": "eslint -- --ignore-pattern internals/*",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/*",
     "lint:js": "npm run lint:eslint -- . ",
     "lint:ts": "tslint --config ./tslint.json --project ./tsconfig.json",
     "lint:css": "stylelint ./app/**/*.css",
@@ -93,6 +93,7 @@
       "es6": true
     },
     "plugins": [
+      "redux-saga",
       "react",
       "jsx-a11y"
     ],
@@ -118,6 +119,7 @@
       ],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
+      "import/no-dynamic-require": 0,
       "import/no-extraneous-dependencies": 0,
       "import/no-named-as-default": 0,
       "import/no-unresolved": 2,
@@ -138,6 +140,7 @@
       "jsx-a11y/role-supports-aria-props": 2,
       "max-len": 0,
       "newline-per-chained-call": 0,
+      "no-confusing-arrow": 0,
       "no-console": 1,
       "no-use-before-define": 0,
       "prefer-template": 2,
@@ -151,7 +154,10 @@
       "react/jsx-no-target-blank": 0,
       "react/require-extension": 0,
       "react/self-closing-comp": 0,
-      "require-yield": 0
+      "redux-saga/no-yield-in-race": 2,
+      "redux-saga/yield-effects": 2,
+      "require-yield": 0,
+      "import/no-webpack-loader-syntax": 0
     },
     "settings": {
       "import/resolver": {
@@ -264,7 +270,7 @@
     "awesome-typescript-loader": "^3.1.2",
     "babel-cli": "6.14.0",
     "babel-core": "6.14.0",
-    "babel-eslint": "6.1.2",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "6.2.5",
     "babel-plugin-istanbul": "2.0.1",
     "babel-plugin-react-intl": "2.2.0",
@@ -283,12 +289,13 @@
     "css-loader": "0.25.0",
     "enzyme": "^2.8.2",
     "eslint": "3.11.1",
-    "eslint-config-airbnb": "11.1.0",
-    "eslint-config-airbnb-base": "7.1.0",
-    "eslint-import-resolver-webpack": "0.6.0",
-    "eslint-plugin-import": "1.15.0",
-    "eslint-plugin-jsx-a11y": "2.2.2",
-    "eslint-plugin-react": "6.2.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-import-resolver-webpack": "^0.8.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "eslint-plugin-redux-saga": "^0.1.5",
     "eventsource-polyfill": "0.9.6",
     "expect": "1.20.2",
     "expect-jsx": "2.6.0",
