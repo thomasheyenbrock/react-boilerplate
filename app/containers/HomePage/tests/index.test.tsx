@@ -2,9 +2,9 @@
  * Test the HomePage
  */
 
-import expect = require('expect');
+import * as expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import React = require('react');
+import * as React from 'react';
 
 import { IntlProvider } from 'react-intl';
 import { HomePage, mapDispatchToProps } from '../index';

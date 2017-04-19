@@ -1,8 +1,8 @@
 import H1 from 'components/H1';
 
-import expect = require('expect');
+import * as expect from 'expect';
 import { shallow } from 'enzyme';
-import React = require('react');
+import * as React from 'react';
 import ReactElement = React.ReactElement;
 
 describe('<H1 />', () => {

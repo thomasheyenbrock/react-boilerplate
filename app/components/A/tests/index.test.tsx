@@ -4,9 +4,9 @@
 
 import A from 'components/A';
 
-import expect = require('expect');
+import * as expect from 'expect';
 import { shallow } from 'enzyme';
-import React = require('react');
+import * as React from 'react';
 
 const href = 'http://mxstbr.com/';
 const children = (<h1>Test</h1>);

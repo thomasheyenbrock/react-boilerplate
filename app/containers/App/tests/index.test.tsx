@@ -1,9 +1,9 @@
 import App from '../index';
 import Footer from 'components/Footer';
 
-import expect = require('expect');
+import * as expect from 'expect';
 import { shallow } from 'enzyme';
-import React = require('react');
+import * as React from 'react';
 
 describe('<App />', () => {
   it('should render the logo', () => {

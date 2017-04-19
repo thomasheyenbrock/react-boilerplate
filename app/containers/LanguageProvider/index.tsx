@@ -6,7 +6,7 @@
  * IntlProvider component and i18n messages (loaded from `app/translations`)
  */
 
-import React = require('react');
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { IntlProvider } from 'react-intl';

@@ -1,9 +1,9 @@
 import ToggleOption from '../index';
 
-import expect = require('expect');
+import * as expect from 'expect';
 import { shallow } from 'enzyme';
 import { IntlProvider, defineMessages } from 'react-intl';
-import React = require('react');
+import * as React from 'react';
 
 describe('<ToggleOption />', () => {
   it('should render default language messages', () => {

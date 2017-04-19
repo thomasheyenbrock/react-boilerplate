@@ -6,7 +6,7 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React = require('react');
+import * as React from 'react';
 import Helmet from 'react-helmet';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
