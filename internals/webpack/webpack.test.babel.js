@@ -2,6 +2,7 @@
  * TEST WEBPACK CONFIGURATION
  */
 const webpack = require('webpack');
+const path = require('path');
 
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 
@@ -11,6 +12,9 @@ const modules = [
 ];
 
 module.exports = {
+  entry: [
+    path.join(process.cwd(), 'app/app.tsx'),
+  ],
   devtool: 'inline-source-map',
   module: {
     // Some libraries don't like being run through babel.
@@ -28,10 +32,10 @@ module.exports = {
       // imports-loader allows for global vars to be injected into the module.
       // See https://github.com/webpack/webpack/issues/304
       { test: /sinon(\\|\/)pkg(\\|\/)sinon\.js/,
-        loader: 'imports?define=>false,require=>false',
+        loader: 'imports-loader?define=>false,require=>false',
       },
       { test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: [/node_modules/],
       },
       { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,

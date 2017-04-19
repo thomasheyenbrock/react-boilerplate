@@ -21,6 +21,6 @@ describe('<List />', () => {
     const renderedComponent = mount(
       <List items={items} component={ListItem} />,
     );
-    expect(renderedComponent.find(items)).toExist();
+    expect(renderedComponent.containsAllMatchingElements(items.map((item) => <ListItem item={item}/>))).toExist();
   });
 });
