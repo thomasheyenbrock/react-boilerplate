@@ -1,11 +1,11 @@
 /* eslint-disable global-require */
-import Express = require('express');
-import path = require('path');
-import compression = require('compression');
-import Webpack = require('webpack');
-import WebpackDevMiddleware = require('webpack-dev-middleware');
-import WebpackHotMiddleware = require('webpack-hot-middleware');
-const pkg = require(path.resolve(process.cwd(), 'package.json'));
+import * as Express from 'express';
+import * as Path from 'path';
+import * as Compression from 'compression';
+import * as Webpack from 'webpack';
+import * as WebpackDevMiddleware from 'webpack-dev-middleware';
+import * as WebpackHotMiddleware from 'webpack-hot-middleware';
+const Pkg = require(Path.resolve(process.cwd(), 'package.json'));
 
 export interface IOptions {
   publicPath: string;
@@ -29,15 +29,15 @@ const addDevMiddlewares = (app: Express.Application, webpackConfig: Webpack.Conf
   // artifacts, we use it instead
   const fs = middleware.fileSystem;
 
-  if (pkg.dllPlugin) {
+  if (Pkg.dllPlugin) {
     app.get(/\.dll\.js$/, (req, res) => {
       const filename = req.path.replace(/^\//, '');
-      res.sendFile(path.join(process.cwd(), pkg.dllPlugin.path, filename));
+      res.sendFile(Path.join(process.cwd(), Pkg.dllPlugin.path, filename));
     });
   }
 
   app.get('*', (req, res) => {
-    fs.readFile(path.join(compiler.options.output.path, 'index.html'), (err, file) => {
+    fs.readFile(Path.join(compiler.options.output.path, 'index.html'), (err, file) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -50,15 +50,15 @@ const addDevMiddlewares = (app: Express.Application, webpackConfig: Webpack.Conf
 // Production middlewares
 const addProdMiddlewares = (app: Express.Application, options: IOptions) => {
   const publicPath = options.publicPath || '/';
-  const outputPath = options.outputPath || path.resolve(process.cwd(), 'build');
+  const outputPath = options.outputPath || Path.resolve(process.cwd(), 'build');
 
   // compression middleware compresses your server responses which makes them
   // smaller (applies also to assets). You can read more about that technique
   // and other good practices on official Express.js docs http://mxs.is/googmy
-  app.use(compression());
+  app.use(Compression());
   app.use(publicPath, Express.static(outputPath));
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(outputPath, 'index.html')));
+  app.get('*', (req, res) => res.sendFile(Path.resolve(outputPath, 'index.html')));
 };
 
 /**

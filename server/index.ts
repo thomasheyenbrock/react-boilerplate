@@ -1,6 +1,6 @@
 /* eslint consistent-return:0 */
 
-import express = require('express');
+import * as Express from 'express';
 import logger from 'server/logger';
 
 const argv = require('minimist')(process.argv.slice(2)) as {
@@ -9,9 +9,10 @@ const argv = require('minimist')(process.argv.slice(2)) as {
 };
 import setup from 'server/middlewares/frontendMiddleware';
 const isDev = process.env.NODE_ENV !== 'production';
-const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
-const resolve = require('path').resolve;
-const app = express();
+interface INgrok { connect(port: number, callback: (err: Error, url: string) => void); };
+const ngrok: INgrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
+import { resolve } from 'path';
+const app = Express();
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
