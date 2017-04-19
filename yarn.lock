@@ -51,12 +51,6 @@
   version "3.2.1"
   resolved "https://registry.npmjs.com/@types/history/-/history-3.2.1.tgz#0039ab0e0be2a0cc22bac171d27a44588103d123"
 
-"@types/immutable@^3.8.7":
-  version "3.8.7"
-  resolved "https://registry.npmjs.com/@types/immutable/-/immutable-3.8.7.tgz#536d33d30f3f3d9a6d4642a219419fd82af633fb"
-  dependencies:
-    immutable "*"
-
 "@types/invariant@^2.2.28":
   version "2.2.28"
   resolved "https://registry.npmjs.com/@types/invariant/-/invariant-2.2.28.tgz#ad721b5c0168db3aaffe551d4acfb8a5b4386e30"
@@ -144,21 +138,9 @@
   dependencies:
     redux "^3.6.0"
 
-"@types/redux-saga@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.npmjs.com/@types/redux-saga/-/redux-saga-0.10.5.tgz#80bf21078379ebc97387dbe56e44467b5677fa85"
-  dependencies:
-    redux-saga "*"
-
 "@types/redux@^3.6.0":
   version "3.6.31"
   resolved "https://registry.npmjs.com/@types/redux/-/redux-3.6.31.tgz#40eafa7575db36b912ce0059b85de98c205b0708"
-
-"@types/reselect@^2.0.27":
-  version "2.2.0"
-  resolved "https://registry.npmjs.com/@types/reselect/-/reselect-2.2.0.tgz#c667206cfdc38190e1d379babe08865b2288575f"
-  dependencies:
-    reselect "*"
 
 "@types/serve-static@*":
   version "1.7.31"
@@ -4478,7 +4460,7 @@ imagemin@^5.2.2:
     promise.pipe "^3.0.0"
     replace-ext "0.0.1"
 
-immutable@*, immutable@3.8.1:
+immutable@3.8.1:
   version "3.8.1"
   resolved "https://registry.npmjs.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
@@ -7600,7 +7582,7 @@ redux-immutable@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.com/redux-immutable/-/redux-immutable-4.0.0.tgz#3a1a32df66366462b63691f0e1dc35e472bbc9f3"
 
-redux-saga@*, redux-saga@^0.14.5:
+redux-saga@^0.14.5:
   version "0.14.6"
   resolved "https://registry.npmjs.com/redux-saga/-/redux-saga-0.14.6.tgz#bc409aa0edaa4a7234759041cc70da62f37c6f13"
 
@@ -7848,7 +7830,7 @@ requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.npmjs.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
-reselect@*, reselect@^3.0.0:
+reselect@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.com/reselect/-/reselect-3.0.0.tgz#b2e35977f03048700028eaee3a8c0639e40e8f35"
 
