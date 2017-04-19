@@ -229,7 +229,7 @@
     "redux-saga": "^0.14.5",
     "reselect": "^3.0.0",
     "sanitize.css": "4.1.0",
-    "ts-node": "^2.0.0",
+    "ts-node": "^3.0.2",
     "typescript": "^2.2.2",
     "warning": "3.0.0",
     "whatwg-fetch": "1.0.0"
