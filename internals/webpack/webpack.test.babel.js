@@ -7,7 +7,7 @@ const path = require('path');
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 
 const modules = [
-  'app',
+  './',
   'node_modules',
 ];
 
