@@ -1,6 +1,6 @@
-import expect = require('expect');
+import * as expect from 'expect';
 import { mount } from 'enzyme';
-import React = require('react');
+import * as React from 'react';
 
 import List from 'components/List';
 import ListItem from 'components/ListItem';

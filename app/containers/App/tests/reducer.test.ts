@@ -1,4 +1,4 @@
-import expect = require('expect');
+import * as expect from 'expect';
 import appReducer from '../reducer';
 import {
   loadRepos,

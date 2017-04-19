@@ -2,7 +2,7 @@
  * A link to a certain page, an anchor tag
  */
 
-import React = require('react');
+import * as React from 'react';
 
 const styles = require('./styles.css');
 

@@ -1,4 +1,4 @@
-import expect = require('expect');
+import * as expect from 'expect';
 import homeReducer from '../reducer';
 import {
   changeUsername,

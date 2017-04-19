@@ -16,12 +16,12 @@ import 'file-loader?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved */
 
 // Import all the third party stuff
-import React = require('react');
-import ReactDOM = require('react-dom');
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import FontFaceObserver = require('fontfaceobserver');
+import * as FontFaceObserver from 'fontfaceobserver';
 import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
 

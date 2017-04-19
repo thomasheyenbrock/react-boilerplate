@@ -1,4 +1,4 @@
-import React = require('react');
+import * as React from 'react';
 
 import A from 'components/A';
 const styles = require('./styles.css');

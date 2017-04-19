@@ -2,7 +2,7 @@
  * Tests for HomePage sagas
  */
 
-import expect = require('expect');
+import * as expect from 'expect';
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 

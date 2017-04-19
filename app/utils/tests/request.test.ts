@@ -3,8 +3,8 @@
  */
 
 import request, { ResponseError } from '../request';
-import sinon = require ('sinon');
-import expect = require('expect');
+import * as sinon from 'sinon';
+import * as expect from 'expect';
 import { IStubedWindow } from './stubs';
 
 declare var window: IStubedWindow & Window;

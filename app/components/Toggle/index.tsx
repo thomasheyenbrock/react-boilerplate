@@ -4,7 +4,7 @@
  *
  */
 
-import React = require('react');
+import * as React from 'react';
 
 // import { FormattedMessage } from 'react-intl';
 const styles = require('./styles.css');

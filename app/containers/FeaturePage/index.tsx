@@ -3,7 +3,7 @@
  *
  * List all the features
  */
-import React = require('react');
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { push, RouterAction } from 'react-router-redux';
 import Helmet from 'react-helmet';

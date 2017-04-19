@@ -2,7 +2,7 @@
  * Test store addons
  */
 
-import expect = require('expect');
+import * as expect from 'expect';
 import configureStore from '../store';
 import { browserHistory } from 'react-router';
 

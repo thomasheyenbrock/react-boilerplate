@@ -1,6 +1,6 @@
-import expect = require('expect');
+import * as expect from 'expect';
 import { shallow } from 'enzyme';
-import React = require('react');
+import * as React from 'react';
 
 import Button from 'components/Button';
 import { FormattedMessage } from 'react-intl';

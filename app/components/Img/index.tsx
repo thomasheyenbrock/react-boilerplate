@@ -5,7 +5,7 @@
  * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React = require('react');
+import * as React from 'react';
 
 // We require the use of src and alt, only enforced by react in dev mode
 interface IImgProps {
