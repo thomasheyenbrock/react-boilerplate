@@ -8,8 +8,8 @@ import * as React from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import { NotFound } from '../index';
-import H1 from 'components/H1';
-import Button from 'components/Button';
+import H1 from 'app/components/H1';
+import Button from 'app/components/Button';
 
 describe('<NotFound />', () => {
   it('should render the Page Not Found text', () => {

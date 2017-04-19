@@ -2,7 +2,7 @@
  * Testing our link component
  */
 
-import A from 'components/A';
+import A from 'app/components/A';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

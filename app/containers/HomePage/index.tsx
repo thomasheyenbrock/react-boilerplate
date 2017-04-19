@@ -16,7 +16,7 @@ import {
   selectRepos,
   selectLoading,
   selectError,
-} from 'containers/App/selectors';
+} from 'app/containers/App/selectors';
 
 import {
   selectUsername,
@@ -26,12 +26,12 @@ import { changeUsername } from './actions';
 import { loadRepos } from '../App/actions';
 
 import { FormattedMessage } from 'react-intl';
-import RepoListItem from 'containers/RepoListItem';
-import Button from 'components/Button';
-import H2 from 'components/H2';
-import List from 'components/List';
-import ListItem from 'components/ListItem';
-import LoadingIndicator from 'components/LoadingIndicator';
+import RepoListItem from 'app/containers/RepoListItem';
+import Button from 'app/components/Button';
+import H2 from 'app/components/H2';
+import List from 'app/components/List';
+import ListItem from 'app/components/ListItem';
+import LoadingIndicator from 'app/components/LoadingIndicator';
 
 const styles = require('./styles.css');
 

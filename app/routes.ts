@@ -27,9 +27,9 @@ export default function createRoutes(store): IExtendedRouteProps[] {
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/HomePage/reducer'),
-          System.import('containers/HomePage/sagas'),
-          System.import('containers/HomePage'),
+          System.import('app/containers/HomePage/reducer'),
+          System.import('app/containers/HomePage/sagas'),
+          System.import('app/containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -47,7 +47,7 @@ export default function createRoutes(store): IExtendedRouteProps[] {
       path: '/features',
       name: 'features',
       getComponent(nextState, cb) {
-        System.import('containers/FeaturePage')
+        System.import('app/containers/FeaturePage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },
@@ -55,7 +55,7 @@ export default function createRoutes(store): IExtendedRouteProps[] {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
-        System.import('containers/NotFoundPage')
+        System.import('app/containers/NotFoundPage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },

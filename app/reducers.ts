@@ -8,8 +8,8 @@ import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import Redux from 'redux';
 
-import globalReducer from 'containers/App/reducer';
-import languageProviderReducer from 'containers/LanguageProvider/reducer';
+import globalReducer from 'app/containers/App/reducer';
+import languageProviderReducer from 'app/containers/LanguageProvider/reducer';
 
 /*
  * routeReducer

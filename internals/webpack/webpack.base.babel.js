@@ -91,7 +91,8 @@ module.exports = (options) => ({
     }),
   ]),
   resolve: {
-    modules: ['app', 'node_modules'],
+    // needs to match any prefixes defined in the tsconfig.json#compilerOptions.paths property
+    modules: ['./', 'node_modules'],
     extensions: [
       '.js',
       '.jsx',

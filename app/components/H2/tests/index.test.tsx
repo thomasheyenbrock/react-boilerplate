@@ -1,4 +1,4 @@
-import H2 from 'components/H2';
+import H2 from 'app/components/H2';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

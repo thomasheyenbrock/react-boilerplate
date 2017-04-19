@@ -1,5 +1,5 @@
 import App from '../index';
-import Footer from 'components/Footer';
+import Footer from 'app/components/Footer';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

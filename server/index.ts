@@ -1,13 +1,13 @@
 /* eslint consistent-return:0 */
 
 import express = require('express');
-import logger from './logger';
+import logger from 'server/logger';
 
 const argv = require('minimist')(process.argv.slice(2)) as {
   port?: number;
   tunnel?: boolean;
 };
-import setup from './middlewares/frontendMiddleware';
+import setup from 'server/middlewares/frontendMiddleware';
 const isDev = process.env.NODE_ENV !== 'production';
 const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
 const resolve = require('path').resolve;

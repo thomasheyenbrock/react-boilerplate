@@ -2,8 +2,8 @@ import * as expect from 'expect';
 import { mount } from 'enzyme';
 import * as React from 'react';
 
-import List from 'components/List';
-import ListItem from 'components/ListItem';
+import List from 'app/components/List';
+import ListItem from 'app/components/ListItem';
 
 describe('<List />', () => {
   it('should render the component if no items are passed', () => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import A from 'components/A';
+import A from 'app/components/A';
 const styles = require('./styles.css');
 
 class Footer extends React.Component<{}, {}> {

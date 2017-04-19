@@ -13,7 +13,7 @@ import { appLocales } from '../../i18n';
 import { createSelector } from 'reselect';
 const styles = require('./styles.css');
 import messages from './messages';
-import Toggle from 'components/Toggle';
+import Toggle from 'app/components/Toggle';
 
 interface IProps {
   onLocaleToggle?: (e: any) => any;

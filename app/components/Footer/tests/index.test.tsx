@@ -2,8 +2,8 @@ import * as expect from 'expect';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Footer from 'components/Footer';
-import A from 'components/A';
+import Footer from 'app/components/Footer';
+import A from 'app/components/A';
 
 describe('<Footer />', () => {
   it('should render the copyright notice', () => {

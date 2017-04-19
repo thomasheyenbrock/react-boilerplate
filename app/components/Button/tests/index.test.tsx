@@ -2,7 +2,7 @@
  * Testing our Button component
  */
 
-import Button from 'components/Button';
+import Button from 'app/components/Button';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

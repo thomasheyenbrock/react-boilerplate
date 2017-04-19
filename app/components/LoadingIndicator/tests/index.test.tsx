@@ -1,4 +1,4 @@
-import LoadingIndicator from 'components/LoadingIndicator';
+import LoadingIndicator from 'app/components/LoadingIndicator';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

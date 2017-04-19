@@ -1,4 +1,4 @@
-import IssueIcon from 'components/IssueIcon';
+import IssueIcon from 'app/components/IssueIcon';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

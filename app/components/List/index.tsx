@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const styles = require('./styles.css');
-import ListItem from 'components/ListItem';
+import ListItem from 'app/components/ListItem';
 
 interface IListProps {
   component: React.ComponentClass<any> | React.StatelessComponent<any>;

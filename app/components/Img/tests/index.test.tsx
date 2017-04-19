@@ -1,4 +1,4 @@
-import Img from 'components/Img';
+import Img from 'app/components/Img';
 
 import { expect } from 'chai';
 import { shallow } from 'enzyme';

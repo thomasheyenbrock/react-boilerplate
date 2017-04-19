@@ -8,11 +8,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { selectCurrentUser } from 'containers/App/selectors';
+import { selectCurrentUser } from 'app/containers/App/selectors';
 
-import ListItem from 'components/ListItem';
-import IssueIcon from 'components/IssueIcon';
-import A from 'components/A';
+import ListItem from 'app/components/ListItem';
+import IssueIcon from 'app/components/IssueIcon';
+import A from 'app/components/A';
 
 const styles = require('./styles.css');
 

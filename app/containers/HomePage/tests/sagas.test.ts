@@ -8,11 +8,11 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { getRepos, getReposWatcher, githubData } from '../sagas';
 
-import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import { LOAD_REPOS } from 'app/containers/App/constants';
+import { reposLoaded, repoLoadingError } from 'app/containers/App/actions';
 
-import request from 'utils/request';
-import { selectUsername } from 'containers/HomePage/selectors';
+import request from 'app/utils/request';
+import { selectUsername } from 'app/containers/HomePage/selectors';
 import { Action } from 'redux';
 
 const username = 'mxstbr';

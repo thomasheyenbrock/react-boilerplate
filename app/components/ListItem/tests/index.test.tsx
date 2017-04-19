@@ -1,4 +1,4 @@
-import ListItem from 'components/ListItem';
+import ListItem from 'app/components/ListItem';
 
 import * as expect from 'expect';
 import { shallow } from 'enzyme';

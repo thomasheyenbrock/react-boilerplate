@@ -4,11 +4,11 @@
 
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import { LOAD_REPOS } from 'app/containers/App/constants';
+import { reposLoaded, repoLoadingError } from 'app/containers/App/actions';
 
-import request from 'utils/request';
-import { selectUsername } from 'containers/HomePage/selectors';
+import request from 'app/utils/request';
+import { selectUsername } from 'app/containers/HomePage/selectors';
 
 /**
  * Github repos request/response handler
@@ -18,7 +18,7 @@ export function* getRepos(): IterableIterator<any> { // TODO: fix return value
   const username = yield select(selectUsername());
   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
-  // Call our request helper (see 'utils/request')
+  // Call our request helper (see 'app/utils/request')
   const repos = yield call(request, requestURL);
 
   if (!repos.err) {
