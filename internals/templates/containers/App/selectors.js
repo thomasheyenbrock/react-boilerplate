@@ -8,5 +8,5 @@ const makeSelectLocation = () => createSelector(
 );
 
 export {
-  makeSelectLocation,
+  makeSelectLocation
 };

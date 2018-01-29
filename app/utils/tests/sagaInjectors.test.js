@@ -8,12 +8,12 @@ import { put } from 'redux-saga/effects';
 import configureStore from '../../configureStore';
 import getInjectors, {
   injectSagaFactory,
-  ejectSagaFactory,
+  ejectSagaFactory
 } from '../sagaInjectors';
 import {
   DAEMON,
   ONCE_TILL_UNMOUNT,
-  RESTART_ON_REMOUNT,
+  RESTART_ON_REMOUNT
 } from '../constants';
 
 function* testSaga() {
@@ -34,7 +34,7 @@ describe('injectors', () => {
     it('should return injectors', () => {
       expect(getInjectors(store)).toEqual(expect.objectContaining({
         injectSaga: expect.any(Function),
-        ejectSaga: expect.any(Function),
+        ejectSaga: expect.any(Function)
       }));
     });
 

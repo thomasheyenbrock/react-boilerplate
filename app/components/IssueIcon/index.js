@@ -14,7 +14,7 @@ function IssueIcon(props) {
 }
 
 IssueIcon.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default IssueIcon;

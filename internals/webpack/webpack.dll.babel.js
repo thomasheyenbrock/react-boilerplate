@@ -26,15 +26,15 @@ module.exports = require('./webpack.base.babel')({
   output: {
     filename: '[name].dll.js',
     path: outputPath,
-    library: '[name]',
+    library: '[name]'
   },
   plugins: [
     new webpack.DllPlugin({
       name: '[name]',
-      path: join(outputPath, '[name].json'),
-    }),
+      path: join(outputPath, '[name].json')
+    })
   ],
   performance: {
-    hints: false,
-  },
+    hints: false
+  }
 });

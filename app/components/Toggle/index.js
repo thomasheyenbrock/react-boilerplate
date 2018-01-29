@@ -31,7 +31,7 @@ Toggle.propTypes = {
   onToggle: PropTypes.func,
   values: PropTypes.array,
   value: PropTypes.string,
-  messages: PropTypes.object,
+  messages: PropTypes.object
 };
 
 export default Toggle;

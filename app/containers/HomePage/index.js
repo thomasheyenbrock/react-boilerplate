@@ -44,7 +44,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     const reposListProps = {
       loading,
       error,
-      repos,
+      repos
     };
 
     return (
@@ -93,15 +93,15 @@ HomePage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([
     PropTypes.object,
-    PropTypes.bool,
+    PropTypes.bool
   ]),
   repos: PropTypes.oneOfType([
     PropTypes.array,
-    PropTypes.bool,
+    PropTypes.bool
   ]),
   onSubmitForm: PropTypes.func,
   username: PropTypes.string,
-  onChangeUsername: PropTypes.func,
+  onChangeUsername: PropTypes.func
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -110,7 +110,7 @@ export function mapDispatchToProps(dispatch) {
     onSubmitForm: (evt) => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadRepos());
-    },
+    }
   };
 }
 
@@ -118,7 +118,7 @@ const mapStateToProps = createStructuredSelector({
   repos: makeSelectRepos(),
   username: makeSelectUsername(),
   loading: makeSelectLoading(),
-  error: makeSelectError(),
+  error: makeSelectError()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

@@ -9,7 +9,7 @@ import identity from 'lodash/identity';
 import configureStore from '../../configureStore';
 
 import getInjectors, {
-  injectReducerFactory,
+  injectReducerFactory
 } from '../reducerInjectors';
 
 // Fixtures
@@ -36,7 +36,7 @@ describe('reducer injectors', () => {
 
     it('should return injectors', () => {
       expect(getInjectors(store)).toEqual(expect.objectContaining({
-        injectReducer: expect.any(Function),
+        injectReducer: expect.any(Function)
       }));
     });
 

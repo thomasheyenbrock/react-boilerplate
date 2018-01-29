@@ -115,8 +115,12 @@
       ],
       "class-methods-use-this": 0,
       "comma-dangle": [
-        2,
-        "always-multiline"
+        "error",
+        "never"
+      ],
+      "curly-object-spacing": [
+        "error",
+        "always"
       ],
       "import/imports-first": 0,
       "import/newline-after-import": 0,

@@ -50,9 +50,9 @@ export class RepoListItem extends React.PureComponent { // eslint-disable-line r
 
 RepoListItem.propTypes = {
   item: PropTypes.object,
-  currentUser: PropTypes.string,
+  currentUser: PropTypes.string
 };
 
 export default connect(createStructuredSelector({
-  currentUser: makeSelectCurrentUser(),
+  currentUser: makeSelectCurrentUser()
 }))(RepoListItem);

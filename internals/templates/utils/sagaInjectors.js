@@ -8,7 +8,7 @@ import checkStore from './checkStore';
 import {
   DAEMON,
   ONCE_TILL_UNMOUNT,
-  RESTART_ON_REMOUNT,
+  RESTART_ON_REMOUNT
 } from './constants';
 
 const allowedModes = [RESTART_ON_REMOUNT, DAEMON, ONCE_TILL_UNMOUNT];
@@ -21,7 +21,7 @@ const checkKey = (key) => invariant(
 const checkDescriptor = (descriptor) => {
   const shape = {
     saga: isFunction,
-    mode: (mode) => isString(mode) && allowedModes.includes(mode),
+    mode: (mode) => isString(mode) && allowedModes.includes(mode)
   };
   invariant(
     conformsTo(descriptor, shape),
@@ -81,6 +81,6 @@ export default function getInjectors(store) {
 
   return {
     injectSaga: injectSagaFactory(store, true),
-    ejectSaga: ejectSagaFactory(store, true),
+    ejectSaga: ejectSagaFactory(store, true)
   };
 }

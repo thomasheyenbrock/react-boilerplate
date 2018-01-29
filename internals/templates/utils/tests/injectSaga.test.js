@@ -31,7 +31,7 @@ describe('injectSaga decorator', () => {
     store = configureStore({}, memoryHistory);
     injectors = {
       injectSaga: jest.fn(),
-      ejectSaga: jest.fn(),
+      ejectSaga: jest.fn()
     };
     ComponentWithSaga = injectSaga({ key: 'test', saga: testSaga, mode: 'testMode' })(Component);
     sagaInjectors.default.mockClear();

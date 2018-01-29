@@ -16,8 +16,8 @@ describe('request', () => {
       const res = new Response('{"hello":"world"}', {
         status: 200,
         headers: {
-          'Content-type': 'application/json',
-        },
+          'Content-type': 'application/json'
+        }
       });
 
       window.fetch.mockReturnValue(Promise.resolve(res));
@@ -38,7 +38,7 @@ describe('request', () => {
     beforeEach(() => {
       const res = new Response('', {
         status: 204,
-        statusText: 'No Content',
+        statusText: 'No Content'
       });
 
       window.fetch.mockReturnValue(Promise.resolve(res));
@@ -61,8 +61,8 @@ describe('request', () => {
         status: 404,
         statusText: 'Not Found',
         headers: {
-          'Content-type': 'application/json',
-        },
+          'Content-type': 'application/json'
+        }
       });
 
       window.fetch.mockReturnValue(Promise.resolve(res));
