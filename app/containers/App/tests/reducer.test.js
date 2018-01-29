@@ -9,6 +9,7 @@ import {
 
 describe('appReducer', () => {
   let state;
+
   beforeEach(() => {
     state = fromJS({
       loading: false,
@@ -22,6 +23,7 @@ describe('appReducer', () => {
 
   it('should return the initial state', () => {
     const expectedResult = state;
+
     expect(appReducer(undefined, {})).toEqual(expectedResult);
   });
 

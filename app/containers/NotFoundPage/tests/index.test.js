@@ -14,6 +14,7 @@ describe('<NotFound />', () => {
     const renderedComponent = shallow(
       <NotFound />
     );
+
     expect(renderedComponent.contains(
       <H1>
         <FormattedMessage

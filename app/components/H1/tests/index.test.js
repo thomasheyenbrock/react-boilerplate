@@ -9,6 +9,7 @@ describe('<H1 />', () => {
     const renderedComponent = shallow(
       <H1 id={id} />
     );
+
     expect(renderedComponent.prop('id')).toEqual(id);
   });
 
@@ -17,6 +18,7 @@ describe('<H1 />', () => {
     const renderedComponent = shallow(
       <H1>{children}</H1>
     );
+
     expect(renderedComponent.contains(children)).toBe(true);
   });
 });

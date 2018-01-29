@@ -13,7 +13,8 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 
-export default class FeaturePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+/* eslint-disable react/prefer-stateless-function */
+export default class FeaturePage extends React.Component {
 
   // Since state and props are static,
   // there's no need to re-render this component

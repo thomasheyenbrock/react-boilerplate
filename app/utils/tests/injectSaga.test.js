@@ -39,6 +39,7 @@ describe('injectSaga decorator', () => {
 
   it('should inject given saga, mode, and props', () => {
     const props = { test: 'test' };
+
     shallow(<ComponentWithSaga {...props} />, { context: { store } });
 
     expect(injectors.injectSaga).toHaveBeenCalledTimes(1);
@@ -48,6 +49,7 @@ describe('injectSaga decorator', () => {
   it('should eject on unmount with a correct saga key', () => {
     const props = { test: 'test' };
     const renderedComponent = shallow(<ComponentWithSaga {...props} />, { context: { store } });
+
     renderedComponent.unmount();
 
     expect(injectors.ejectSaga).toHaveBeenCalledTimes(1);

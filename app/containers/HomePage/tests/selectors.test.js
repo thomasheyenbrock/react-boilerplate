@@ -13,12 +13,14 @@ describe('selectHome', () => {
     const mockedState = fromJS({
       home: homeState
     });
+
     expect(selectHome(mockedState)).toEqual(homeState);
   });
 });
 
 describe('makeSelectUsername', () => {
   const usernameSelector = makeSelectUsername();
+
   it('should select the username', () => {
     const username = 'mxstbr';
     const mockedState = fromJS({
@@ -26,6 +28,7 @@ describe('makeSelectUsername', () => {
         username
       }
     });
+
     expect(usernameSelector(mockedState)).toEqual(username);
   });
 });

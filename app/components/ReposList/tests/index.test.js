@@ -12,6 +12,7 @@ describe('<ReposList />', () => {
     const renderedComponent = shallow(
       <ReposList loading />
     );
+
     expect(renderedComponent.contains(<List component={LoadingIndicator} />)).toEqual(true);
   });
 
@@ -24,6 +25,7 @@ describe('<ReposList />', () => {
         />
       </IntlProvider>
     );
+
     expect(renderedComponent.text()).toMatch(/Something went wrong/);
   });
 
@@ -43,8 +45,9 @@ describe('<ReposList />', () => {
         error={false}
       />
     );
+    const list = <List items={repos} component={RepoListItem} />;
 
-    expect(renderedComponent.contains(<List items={repos} component={RepoListItem} />)).toEqual(true);
+    expect(renderedComponent.contains(list)).toEqual(true);
   });
 
   it('should not render anything if nothing interesting is provided', () => {

@@ -8,6 +8,7 @@ describe('<Header />', () => {
     const renderedComponent = shallow(
       <Header />
     );
+
     expect(renderedComponent.find('div').length).toEqual(1);
   });
 });

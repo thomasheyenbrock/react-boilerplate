@@ -25,6 +25,7 @@ describe('<LocaleToggle />', () => {
         </LanguageProvider>
       </Provider>
     );
+
     expect(renderedComponent.contains(<LocaleToggle />)).toBe(true);
   });
 
@@ -36,6 +37,7 @@ describe('<LocaleToggle />', () => {
         </LanguageProvider>
       </Provider>
     );
+
     expect(renderedComponent.contains(<option value="en">en</option>)).toBe(true);
   });
 
@@ -44,6 +46,7 @@ describe('<LocaleToggle />', () => {
       it('should be injected', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
+
         expect(result.onLocaleToggle).toBeDefined();
       });
 
@@ -52,6 +55,7 @@ describe('<LocaleToggle />', () => {
         const result = mapDispatchToProps(dispatch);
         const locale = 'de';
         const evt = { target: { value: locale } };
+
         result.onLocaleToggle(evt);
         expect(dispatch).toHaveBeenCalledWith(changeLocale(locale));
       });

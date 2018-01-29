@@ -23,6 +23,7 @@ const checkDescriptor = (descriptor) => {
     saga: isFunction,
     mode: (mode) => isString(mode) && allowedModes.includes(mode)
   };
+
   invariant(
     conformsTo(descriptor, shape),
     '(app/utils...) injectSaga: Expected a valid saga descriptor'
@@ -43,6 +44,7 @@ export function injectSagaFactory(store, isValid) {
 
     if (process.env.NODE_ENV !== 'production') {
       const oldDescriptor = store.injectedSagas[key];
+
       // enable hot reloading of daemon and once-till-unmount sagas
       if (hasSaga && oldDescriptor.saga !== saga) {
         oldDescriptor.task.cancel();
@@ -51,7 +53,9 @@ export function injectSagaFactory(store, isValid) {
     }
 
     if (!hasSaga || (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)) {
-      store.injectedSagas[key] = { ...newDescriptor, task: store.runSaga(saga, args) }; // eslint-disable-line no-param-reassign
+      /* eslint-disable no-param-reassign */
+      store.injectedSagas[key] = { ...newDescriptor, task: store.runSaga(saga, args) };
+      /* eslint-enable no-param-reassign */
     }
   };
 }
@@ -64,6 +68,7 @@ export function ejectSagaFactory(store, isValid) {
 
     if (Reflect.has(store.injectedSagas, key)) {
       const descriptor = store.injectedSagas[key];
+
       if (descriptor.mode !== DAEMON) {
         descriptor.task.cancel();
         // Clean up in production; in development we need `descriptor.saga` for hot reloading

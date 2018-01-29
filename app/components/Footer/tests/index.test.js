@@ -11,6 +11,7 @@ describe('<Footer />', () => {
     const renderedComponent = shallow(
       <Footer />
     );
+
     expect(renderedComponent.contains(
       <section>
         <FormattedMessage {...messages.licenseMessage} />
@@ -20,6 +21,7 @@ describe('<Footer />', () => {
 
   it('should render the credits', () => {
     const renderedComponent = shallow(<Footer />);
+
     expect(renderedComponent.contains(
       <section>
         <FormattedMessage

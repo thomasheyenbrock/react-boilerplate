@@ -8,6 +8,7 @@ describe('<LoadingIndicator />', () => {
     const renderedComponent = render(
       <LoadingIndicator />
     );
+
     expect(renderedComponent.find('div').length).toBe(13);
   });
 });

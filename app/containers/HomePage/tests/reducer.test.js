@@ -7,6 +7,7 @@ import {
 
 describe('homeReducer', () => {
   let state;
+
   beforeEach(() => {
     state = fromJS({
       username: ''
@@ -15,6 +16,7 @@ describe('homeReducer', () => {
 
   it('should return the initial state', () => {
     const expectedResult = state;
+
     expect(homeReducer(undefined, {})).toEqual(expectedResult);
   });
 

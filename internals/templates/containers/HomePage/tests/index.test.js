@@ -10,6 +10,7 @@ describe('<HomePage />', () => {
     const renderedComponent = shallow(
       <HomePage />
     );
+
     expect(renderedComponent.contains(
       <FormattedMessage {...messages.header} />
     )).toEqual(true);

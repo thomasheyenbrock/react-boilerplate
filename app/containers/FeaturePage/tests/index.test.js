@@ -11,6 +11,7 @@ describe('<FeaturePage />', () => {
     const renderedComponent = shallow(
       <FeaturePage />
     );
+
     expect(renderedComponent.contains(
       <H1>
         <FormattedMessage {...messages.header} />
@@ -23,6 +24,7 @@ describe('<FeaturePage />', () => {
       <FeaturePage />
     );
     const inst = renderedComponent.instance();
+
     expect(inst.shouldComponentUpdate()).toBe(false);
   });
 });

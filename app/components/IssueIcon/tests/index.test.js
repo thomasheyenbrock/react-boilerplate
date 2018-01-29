@@ -8,6 +8,7 @@ describe('<IssueIcon />', () => {
     const renderedComponent = shallow(
       <IssueIcon />
     );
+
     expect(renderedComponent.find('svg').length).toBe(1);
   });
 });

@@ -18,6 +18,7 @@ describe('<ToggleOption />', () => {
         <ToggleOption value="en" message={message.enMessage} />
       </IntlProvider>
     );
+
     expect(renderedComponent.contains(<ToggleOption value="en" message={message.enMessage} />)).toBe(true);
   });
 
@@ -27,6 +28,7 @@ describe('<ToggleOption />', () => {
         <ToggleOption value="de" />
       </IntlProvider>
     );
+
     expect(renderedComponent.text()).toBe('de');
   });
 });

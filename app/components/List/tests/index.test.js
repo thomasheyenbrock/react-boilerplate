@@ -9,6 +9,7 @@ describe('<List />', () => {
     const renderedComponent = shallow(
       <List component={ListItem} />
     );
+
     expect(renderedComponent.find(ListItem)).toBeDefined();
   });
 
@@ -17,12 +18,13 @@ describe('<List />', () => {
       { id: 1, name: 'Hello' },
       { id: 2, name: 'World' }
     ];
-
-    const component = ({ item }) => <ListItem>{item.name}</ListItem>; // eslint-disable-line react/prop-types
-
+    /* eslint-disable react/prop-types */
+    const component = ({ item }) => <ListItem>{item.name}</ListItem>;
+    /* eslint-enable react/prop-types */
     const renderedComponent = shallow(
       <List items={items} component={component} />
     );
+
     expect(renderedComponent.find(component)).toHaveLength(2);
     expect(renderedComponent.find(component).at(0).prop('item')).toBe(items[0]);
     expect(renderedComponent.find(component).at(1).prop('item')).toBe(items[1]);

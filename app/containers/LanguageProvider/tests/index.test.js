@@ -25,6 +25,7 @@ describe('<LanguageProvider />', () => {
         {children}
       </LanguageProvider>
     );
+
     expect(renderedComponent.contains(children)).toBe(true);
   });
 });
@@ -44,6 +45,7 @@ describe('<ConnectedLanguageProvider />', () => {
         </ConnectedLanguageProvider>
       </Provider>
     );
+
     expect(renderedComponent.contains(<FormattedMessage {...messages.someMessage} />)).toBe(true);
   });
 });

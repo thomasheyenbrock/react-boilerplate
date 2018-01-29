@@ -10,6 +10,7 @@ describe('selectLanguage', () => {
     const mockedState = fromJS({
       language: globalState
     });
+
     expect(selectLanguage(mockedState)).toEqual(globalState);
   });
 });

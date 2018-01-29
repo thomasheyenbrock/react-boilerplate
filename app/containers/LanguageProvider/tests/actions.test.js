@@ -13,6 +13,7 @@ describe('LanguageProvider actions', () => {
         type: CHANGE_LOCALE,
         locale: 'de'
       };
+
       expect(changeLocale('de')).toEqual(expected);
     });
   });

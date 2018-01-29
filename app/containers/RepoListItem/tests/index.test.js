@@ -35,6 +35,7 @@ describe('<RepoListItem />', () => {
     const renderedComponent = shallow(
       <RepoListItem item={item} />
     );
+
     expect(renderedComponent.find(ListItem).length).toBe(1);
   });
 
@@ -43,6 +44,7 @@ describe('<RepoListItem />', () => {
       item,
       currentUser: item.owner.login
     });
+
     expect(renderedComponent.text()).not.toContain(item.owner.login);
   });
 
@@ -51,21 +53,25 @@ describe('<RepoListItem />', () => {
       item,
       currentUser: 'nikgraf'
     });
+
     expect(renderedComponent.text()).toContain(item.owner.login);
   });
 
   it('should render the repo name', () => {
     const renderedComponent = renderComponent({ item });
+
     expect(renderedComponent.text()).toContain(item.name);
   });
 
   it('should render the issue count', () => {
     const renderedComponent = renderComponent({ item });
+
     expect(renderedComponent.text()).toContain(item.open_issues_count);
   });
 
   it('should render the IssueIcon', () => {
     const renderedComponent = renderComponent({ item });
+
     expect(renderedComponent.find('svg').length).toBe(1);
   });
 });

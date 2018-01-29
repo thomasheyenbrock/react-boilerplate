@@ -9,6 +9,7 @@ describe('<App />', () => {
     const renderedComponent = shallow(
       <App />
     );
+
     expect(renderedComponent.find(Route).length).not.toBe(0);
   });
 });

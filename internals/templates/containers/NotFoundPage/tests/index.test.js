@@ -10,6 +10,7 @@ describe('<NotFoundPage />', () => {
     const renderedComponent = shallow(
       <NotFoundPage />
     );
+
     expect(renderedComponent.contains(
       <FormattedMessage {...messages.header} />
     )).toEqual(true);

@@ -42,6 +42,7 @@ const Circle = (props) => {
       `}
     }
   `;
+
   return <CirclePrimitive />;
 };
 

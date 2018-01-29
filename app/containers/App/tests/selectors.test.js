@@ -15,12 +15,14 @@ describe('selectGlobal', () => {
     const mockedState = fromJS({
       global: globalState
     });
+
     expect(selectGlobal(mockedState)).toEqual(globalState);
   });
 });
 
 describe('makeSelectCurrentUser', () => {
   const currentUserSelector = makeSelectCurrentUser();
+
   it('should select the current user', () => {
     const username = 'mxstbr';
     const mockedState = fromJS({
@@ -28,12 +30,14 @@ describe('makeSelectCurrentUser', () => {
         currentUser: username
       }
     });
+
     expect(currentUserSelector(mockedState)).toEqual(username);
   });
 });
 
 describe('makeSelectLoading', () => {
   const loadingSelector = makeSelectLoading();
+
   it('should select the loading', () => {
     const loading = false;
     const mockedState = fromJS({
@@ -41,12 +45,14 @@ describe('makeSelectLoading', () => {
         loading
       }
     });
+
     expect(loadingSelector(mockedState)).toEqual(loading);
   });
 });
 
 describe('makeSelectError', () => {
   const errorSelector = makeSelectError();
+
   it('should select the error', () => {
     const error = 404;
     const mockedState = fromJS({
@@ -54,12 +60,14 @@ describe('makeSelectError', () => {
         error
       }
     });
+
     expect(errorSelector(mockedState)).toEqual(error);
   });
 });
 
 describe('makeSelectRepos', () => {
   const reposSelector = makeSelectRepos();
+
   it('should select the repos', () => {
     const repositories = fromJS([]);
     const mockedState = fromJS({
@@ -69,12 +77,14 @@ describe('makeSelectRepos', () => {
         }
       }
     });
+
     expect(reposSelector(mockedState)).toEqual(repositories);
   });
 });
 
 describe('makeSelectLocation', () => {
   const locationStateSelector = makeSelectLocation();
+
   it('should select the location', () => {
     const route = fromJS({
       location: { pathname: '/foo' }
@@ -82,6 +92,7 @@ describe('makeSelectLocation', () => {
     const mockedState = fromJS({
       route
     });
+
     expect(locationStateSelector(mockedState)).toEqual(route.get('location').toJS());
   });
 });

@@ -11,6 +11,7 @@ describe('<App />', () => {
     const renderedComponent = shallow(
       <App />
     );
+
     expect(renderedComponent.find(Header).length).toBe(1);
   });
 
@@ -18,6 +19,7 @@ describe('<App />', () => {
     const renderedComponent = shallow(
       <App />
     );
+
     expect(renderedComponent.find(Route).length).not.toBe(0);
   });
 
@@ -25,6 +27,7 @@ describe('<App />', () => {
     const renderedComponent = shallow(
       <App />
     );
+
     expect(renderedComponent.find(Footer).length).toBe(1);
   });
 });
