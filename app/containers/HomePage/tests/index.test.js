@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { IntlProvider } from 'react-intl';
 
 import ReposList from 'components/ReposList';
 import { HomePage, mapDispatchToProps } from '../index';
@@ -25,13 +24,11 @@ describe('<HomePage />', () => {
     const submitSpy = jest.fn();
 
     mount(
-      <IntlProvider locale="en">
-        <HomePage
-          username="Not Empty"
-          onChangeUsername={() => {}}
-          onSubmitForm={submitSpy}
-        />
-      </IntlProvider>
+      <HomePage
+        username="Not Empty"
+        onChangeUsername={() => {}}
+        onSubmitForm={submitSpy}
+      />
     );
     expect(submitSpy).toHaveBeenCalled();
   });
@@ -40,12 +37,10 @@ describe('<HomePage />', () => {
     const submitSpy = jest.fn();
 
     mount(
-      <IntlProvider locale="en">
-        <HomePage
-          onChangeUsername={() => {}}
-          onSubmitForm={submitSpy}
-        />
-      </IntlProvider>
+      <HomePage
+        onChangeUsername={() => {}}
+        onSubmitForm={submitSpy}
+      />
     );
     expect(submitSpy).not.toHaveBeenCalled();
   });
@@ -54,13 +49,11 @@ describe('<HomePage />', () => {
     const submitSpy = jest.fn();
 
     mount(
-      <IntlProvider locale="en">
-        <HomePage
-          username=""
-          onChangeUsername={() => {}}
-          onSubmitForm={submitSpy}
-        />
-      </IntlProvider>
+      <HomePage
+        username=""
+        onChangeUsername={() => {}}
+        onSubmitForm={submitSpy}
+      />
     );
     expect(submitSpy).not.toHaveBeenCalled();
   });

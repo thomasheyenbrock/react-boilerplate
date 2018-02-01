@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormattedMessage } from 'react-intl';
 
 import H1 from 'components/H1';
-import messages from '../messages';
 import FeaturePage from '../index';
 
 describe('<FeaturePage />', () => {
@@ -14,7 +12,7 @@ describe('<FeaturePage />', () => {
 
     expect(renderedComponent.contains(
       <H1>
-        <FormattedMessage {...messages.header} />
+        Features
       </H1>
     )).toBe(true);
   });

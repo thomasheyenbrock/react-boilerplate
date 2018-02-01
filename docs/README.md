@@ -8,7 +8,7 @@
   - [Tool Configuration](general/files.md)
   - [Server Configurations](general/server-configs.md)
   - [Deployment](general/deployment.md) *(currently Heroku and AWS S3 specific)*
-  - [Debugging](general/debugging.md)  
+  - [Debugging](general/debugging.md)
   - [FAQ](general/faq.md)
   - [Gotchas](general/gotchas.md)
   - [Remove](general/remove.md)
@@ -30,7 +30,6 @@
   - [ImmutableJS](js/immutablejs.md)
   - [reselect](js/reselect.md)
   - [redux-saga](js/redux-saga.md)
-  - [i18n](js/i18n.md)
   - [routing](js/routing.md)
 - [Maintenance](maintenance)
   - [Dependency Update](maintenance/dependency.md)
