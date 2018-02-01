@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormattedMessage } from 'react-intl';
 
 import A from 'components/A';
-import messages from '../messages';
 import Footer from '../index';
 
 describe('<Footer />', () => {
@@ -14,7 +12,7 @@ describe('<Footer />', () => {
 
     expect(renderedComponent.contains(
       <section>
-        <FormattedMessage {...messages.licenseMessage} />
+        This project is licensed under the MIT license.
       </section>
     )).toBe(true);
   });
@@ -24,12 +22,7 @@ describe('<Footer />', () => {
 
     expect(renderedComponent.contains(
       <section>
-        <FormattedMessage
-          {...messages.authorMessage}
-          values={{
-            author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>
-          }}
-        />
+        Made with love by <A href="https://twitter.com/mxstbr">Max Stoiber</A>.
       </section>
     )).toBe(true);
   });
