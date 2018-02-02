@@ -50,18 +50,18 @@ function {{ properCase name }}() {
 }
 
 {{ properCase name }}.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 {{#if wantActionsAndReducer}}
 const mapStateToProps = createStructuredSelector({
-  {{ lowerCase name }}: makeSelect{{properCase name}}(),
+  {{ lowerCase name }}: makeSelect{{properCase name}}()
 });
 {{/if}}
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    dispatch
   };
 }
 
@@ -83,5 +83,5 @@ export default compose(
 {{#if wantSaga}}
   withSaga,
 {{/if}}
-  withConnect,
+  withConnect
 )({{ properCase name }});
